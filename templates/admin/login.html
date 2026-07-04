@@ -1,0 +1,106 @@
+{% extends "admin/base_site.html" %}
+{% load i18n static %}
+
+{% block bodyclass %}{{ block.super }} login acsol-login-page{% endblock %}
+
+{% block nav-breadcrumbs %}{% endblock %}
+{% block content_title %}{% endblock %}
+{% block title %}Entrar | ACSOL Angola{% endblock %}
+
+{% block content %}
+
+<div class="acsol-login-shell">
+
+    <section class="acsol-login-panel">
+
+        <div class="acsol-login-brand">
+
+            <img
+                src="{% static 'img/acsol-logo.jpg' %}"
+                alt="ACSOL Angola"
+            >
+
+            <span class="acsol-login-tag">
+                Painel Institucional
+            </span>
+
+            <h1>
+                ACSOL Angola
+            </h1>
+
+            <p>
+                Gestão segura de projetos, doações,
+                voluntários, conteúdos e administração
+                institucional.
+            </p>
+
+        </div>
+
+        {% if form.errors and not form.non_field_errors %}
+            <p class="errornote">
+                Verifique o utilizador e a palavra-passe.
+            </p>
+        {% endif %}
+
+        {% if form.non_field_errors %}
+            {% for error in form.non_field_errors %}
+                <p class="errornote">
+                    {{ error }}
+                </p>
+            {% endfor %}
+        {% endif %}
+
+        <form action="{{ app_path }}" method="post" id="login-form">
+
+            {% csrf_token %}
+
+            <div class="form-row">
+
+                <label for="{{ form.username.id_for_label }}">
+                    Utilizador
+                </label>
+
+                {{ form.username }}
+
+            </div>
+
+            <div class="form-row">
+
+                <label for="{{ form.password.id_for_label }}">
+                    Palavra-passe
+                </label>
+
+                {{ form.password }}
+
+                <input
+                    type="hidden"
+                    name="next"
+                    value="{{ next }}"
+                >
+
+            </div>
+
+            {% url 'admin_password_reset' as password_reset_url %}
+
+            {% if password_reset_url %}
+                <div class="password-reset-link">
+                    <a href="{{ password_reset_url }}">
+                        Esqueceu a palavra-passe?
+                    </a>
+                </div>
+            {% endif %}
+
+            <div class="submit-row">
+                <input
+                    type="submit"
+                    value="Entrar no painel"
+                >
+            </div>
+
+        </form>
+
+    </section>
+
+</div>
+
+{% endblock %}

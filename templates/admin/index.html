@@ -1,0 +1,148 @@
+{% extends "admin/base_site.html" %}
+{% load i18n static acsol_admin %}
+
+{% block content %}
+{% acsol_site_config as acsol_site %}
+<div class="acsol-dashboard">
+<section class="acsol-welcome">
+    <div>
+        <span class="acsol-badge">
+            Dashboard Institucional
+        </span>
+
+        <h1>
+            Olá, {{ request.user.first_name|default:request.user.username }}!
+        </h1>
+
+        <p>
+            Gestão centralizada da ACSOL Angola:
+            conteúdo, doações, voluntários,
+            eventos, províncias, chatbot e relatórios.
+        </p>
+    </div>
+
+    <img
+        src="{% static 'img/acsol-logo.jpg' %}"
+        alt="ACSOL Angola"
+    >
+</section>
+  <section class="acsol-metric-grid">
+    <a class="acsol-metric-card" href="{% url 'admin:auth_user_changelist' %}">
+      <i data-lucide="users-round"></i>
+      <span>Total de utilizadores</span>
+      <strong>Admin e gerentes</strong>
+      <small>+ seguro e auditado</small>
+    </a>
+    <a class="acsol-metric-card" href="{% url 'admin:core_volunteerapplication_changelist' %}">
+      <i data-lucide="heart-handshake"></i>
+      <span>Voluntários</span>
+      <strong>Candidaturas</strong>
+      <small>+ acompanhamento</small>
+    </a>
+    <a class="acsol-metric-card" href="{% url 'admin:core_donation_changelist' %}">
+      <i data-lucide="gift"></i>
+      <span>Doações</span>
+      <strong>Monetárias</strong>
+      <small>+ recibos futuros</small>
+    </a>
+    <a class="acsol-metric-card" href="{% url 'admin:core_inkinddonation_changelist' %}">
+      <i data-lucide="package-check"></i>
+      <span>Doações</span>
+      <strong>Em espécie</strong>
+      <small>+ estado por entrega</small>
+    </a>
+    <a class="acsol-metric-card" href="{% url 'admin:core_completedproject_changelist' %}">
+      <i data-lucide="badge-check"></i>
+      <span>Projetos feitos</span>
+      <strong>Concluídos</strong>
+      <small>+ fotos e descrição</small>
+    </a>
+    <a class="acsol-metric-card" href="{% url 'admin:core_article_changelist' %}?tipo__exact=evento">
+      <i data-lucide="calendar-days"></i>
+      <span>Eventos</span>
+      <strong>Agenda</strong>
+      <small>+ publicado no site</small>
+    </a>
+    <a class="acsol-metric-card" href="{% url 'admin:core_chatbotconfig_changelist' %}">
+      <i data-lucide="bot"></i>
+      <span>Chatbot IA</span>
+      <strong>Configuração</strong>
+      <small>+ multi-API</small>
+    </a>
+  </section>
+
+  <section class="acsol-ops-grid">
+    <div class="acsol-chart-panel">
+      <div class="acsol-panel-head">
+        <h2>Visão operacional</h2>
+        <span>Indicadores de gestão</span>
+      </div>
+      <div id="acsol-admin-chart" class="acsol-apex-chart"></div>
+      <div class="acsol-bars">
+        <div><span>Doações</span><strong style="width:82%"></strong></div>
+        <div><span>Voluntários</span><strong style="width:68%"></strong></div>
+        <div><span>Projetos</span><strong style="width:74%"></strong></div>
+        <div><span>Províncias</span><strong style="width:60%"></strong></div>
+      </div>
+    </div>
+    <div class="acsol-activity-panel">
+      <div class="acsol-panel-head">
+        <h2>Atalhos críticos</h2>
+        <span>Uso diário</span>
+      </div>
+      <a href="{% url 'admin:core_donation_changelist' %}"><i data-lucide="circle-dollar-sign"></i> Revisar doações monetárias</a>
+      <a href="{% url 'admin:core_inkinddonation_changelist' %}"><i data-lucide="package-open"></i> Acompanhar doações em espécie</a>
+      <a href="{% url 'admin:core_managernotification_changelist' %}"><i data-lucide="bell-ring"></i> Ver ações dos gerentes</a>
+    </div>
+  </section>
+
+  <section class="acsol-panel acsol-social-panel">
+    <div class="acsol-panel-head">
+      <h2>Redes sociais</h2>
+      <span>Editar em Configurações do site</span>
+    </div>
+    <div class="acsol-social-grid">
+      <a href="{% if acsol_site.facebook %}{{ acsol_site.facebook }}{% else %}{% url 'admin:core_siteconfig_changelist' %}{% endif %}" {% if acsol_site.facebook %}target="_blank" rel="noopener"{% endif %}><i data-lucide="facebook"></i><strong>Facebook</strong><span>{% if acsol_site.facebook %}Ligado{% else %}Adicionar link{% endif %}</span></a>
+      <a href="{% if acsol_site.instagram %}{{ acsol_site.instagram }}{% else %}{% url 'admin:core_siteconfig_changelist' %}{% endif %}" {% if acsol_site.instagram %}target="_blank" rel="noopener"{% endif %}><i data-lucide="instagram"></i><strong>Instagram</strong><span>{% if acsol_site.instagram %}Ligado{% else %}Adicionar link{% endif %}</span></a>
+      <a href="{% if acsol_site.youtube %}{{ acsol_site.youtube }}{% else %}{% url 'admin:core_siteconfig_changelist' %}{% endif %}" {% if acsol_site.youtube %}target="_blank" rel="noopener"{% endif %}><i data-lucide="youtube"></i><strong>YouTube</strong><span>{% if acsol_site.youtube %}Ligado{% else %}Adicionar link{% endif %}</span></a>
+      <a href="{% if acsol_site.linkedin %}{{ acsol_site.linkedin }}{% else %}{% url 'admin:core_siteconfig_changelist' %}{% endif %}" {% if acsol_site.linkedin %}target="_blank" rel="noopener"{% endif %}><i data-lucide="linkedin"></i><strong>LinkedIn</strong><span>{% if acsol_site.linkedin %}Ligado{% else %}Adicionar link{% endif %}</span></a>
+      <a href="{% if acsol_site.whatsapp %}https://wa.me/{{ acsol_site.whatsapp }}{% else %}{% url 'admin:core_siteconfig_changelist' %}{% endif %}" {% if acsol_site.whatsapp %}target="_blank" rel="noopener"{% endif %}><i data-lucide="message-circle"></i><strong>WhatsApp</strong><span>{% if acsol_site.whatsapp %}Ligado{% else %}Adicionar número{% endif %}</span></a>
+      <a class="acsol-social-edit" href="{% url 'admin:core_siteconfig_changelist' %}"><i data-lucide="settings"></i><strong>Editar links</strong><span>Configurações do site</span></a>
+    </div>
+  </section>
+
+  <section class="acsol-admin-columns">
+    <div class="acsol-panel">
+      <div class="acsol-panel-head">
+        <h2>Editar o site</h2>
+        <span>Conteudo publico</span>
+      </div>
+      <div class="acsol-shortcuts">
+        <a href="{% url 'admin:core_siteconfig_changelist' %}"><i data-lucide="settings"></i>Configurações do site</a>
+        <a href="{% url 'admin:core_siteflyer_changelist' %}"><i data-lucide="image"></i>Flyers e banners</a>
+        <a href="{% url 'admin:core_project_changelist' %}"><i data-lucide="folder-kanban"></i>Projetos</a>
+        <a href="{% url 'admin:core_completedproject_changelist' %}"><i data-lucide="badge-check"></i>Projetos feitos</a>
+        <a href="{% url 'admin:core_article_changelist' %}"><i data-lucide="newspaper"></i>Notícias e eventos</a>
+        <a href="{% url 'admin:core_galleryitem_changelist' %}"><i data-lucide="images"></i>Galeria e vídeos</a>
+        <a href="{% url 'admin:core_teammember_changelist' %}"><i data-lucide="badge-user"></i>A Nossa Equipa</a>
+      </div>
+    </div>
+
+    <div class="acsol-panel">
+      <div class="acsol-panel-head">
+        <h2>Operacao</h2>
+        <span>Acompanhamento diario</span>
+      </div>
+      <div class="acsol-shortcuts">
+        <a href="{% url 'admin:core_inkinddonation_changelist' %}"><i data-lucide="package-check"></i>Doações em espécie</a>
+        <a href="{% url 'admin:core_donation_changelist' %}"><i data-lucide="gift"></i>Doações monetárias</a>
+        <a href="{% url 'admin:core_volunteerapplication_changelist' %}"><i data-lucide="hand-heart"></i>Voluntários</a>
+        <a href="{% url 'admin:core_provinceoffice_changelist' %}"><i data-lucide="map-pin"></i>Divisões provinciais</a>
+        <a href="{% url 'admin:core_managernotification_changelist' %}"><i data-lucide="bell"></i>Notificações de gerentes</a>
+        <a href="{% url 'admin:core_adminactionsnapshot_changelist' %}"><i data-lucide="history"></i>Histórico reversível</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+{% endblock %}

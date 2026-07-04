@@ -1,0 +1,176 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block extrastyle %}
+{{ block.super }}
+
+<link rel="stylesheet" href="{% static 'css/admin-acsol.css' %}?v=20260629-admin-audit">
+{% endblock %}
+
+{% block extrahead %}
+{{ block.super }}
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+<script src="https://cdn.jsdelivr.net/npm/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
+
+<script src="https://cdn.jsdelivr.net/npm/apexcharts" defer></script>
+
+<script src="{% static 'js/admin-acsol.js' %}" defer></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color" content="#164E63">
+{% endblock %}
+
+{% block branding %}
+<div class="acsol-admin-brand">
+
+    <img
+        src="{% static 'img/acsol-logo.jpg' %}"
+        alt="ACSOL Angola"
+    >
+
+    <div class="acsol-brand-text">
+        <h1 id="site-name">
+            <a href="{% url 'admin:index' %}">
+                ACSOL Angola
+            </a>
+        </h1>
+
+        <span>
+            Painel de Gestão Institucional
+        </span>
+    </div>
+
+</div>
+{% endblock %}
+
+{% block usertools %}
+{% if has_permission %}
+<div id="user-tools" class="acsol-user-tools">
+    <span class="acsol-user-welcome">
+        Bem-vindo,
+        <strong>{% firstof user.get_short_name user.get_username %}</strong>
+    </span>
+
+    <a class="acsol-user-action" href="{% url 'admin:index' %}">
+        Painel
+    </a>
+
+    {% if site_url %}
+    <a class="acsol-user-action" href="{{ site_url }}">
+        Ver site
+    </a>
+    {% endif %}
+
+    {% if user.has_usable_password %}
+    <a class="acsol-user-action" href="{% url 'admin:password_change' %}">
+        Alterar senha
+    </a>
+    {% endif %}
+
+    <form class="acsol-logout-form" method="post" action="{% url 'admin:logout' %}">
+        {% csrf_token %}
+        <button type="submit" class="acsol-logout-btn">
+            <i data-lucide="log-out"></i>
+            Sair
+        </button>
+    </form>
+</div>
+{% endif %}
+{% endblock %}
+
+{% block nav-sidebar %}
+<nav id="nav-sidebar" class="acsol-main-nav" aria-label="Navegação do painel">
+    <a class="acsol-nav-dashboard" href="{% url 'admin:index' %}">
+        <i data-lucide="layout-dashboard"></i>
+        Dashboard
+    </a>
+
+    <div class="acsol-nav-group">
+        <h2>Gestão</h2>
+        <a href="{% url 'admin:auth_user_changelist' %}">
+            <i data-lucide="users-round"></i>
+            Utilizadores
+        </a>
+        <a href="{% url 'admin:core_volunteerapplication_changelist' %}">
+            <i data-lucide="heart-handshake"></i>
+            Voluntários
+        </a>
+        <a href="{% url 'admin:core_donation_changelist' %}">
+            <i data-lucide="gift"></i>
+            Doações monetárias
+        </a>
+        <a href="{% url 'admin:core_inkinddonation_changelist' %}">
+            <i data-lucide="package-check"></i>
+            Doações em espécie
+        </a>
+        <a href="{% url 'admin:core_project_changelist' %}">
+            <i data-lucide="folder-kanban"></i>
+            Projetos
+        </a>
+        <a href="{% url 'admin:core_completedproject_changelist' %}">
+            <i data-lucide="badge-check"></i>
+            Projetos feitos
+        </a>
+        <a href="{% url 'admin:core_article_changelist' %}?tipo__exact=evento">
+            <i data-lucide="calendar-days"></i>
+            Eventos
+        </a>
+    </div>
+
+    <div class="acsol-nav-group">
+        <h2>Conteúdo</h2>
+        <a href="{% url 'admin:core_siteconfig_changelist' %}">
+            <i data-lucide="settings"></i>
+            Configurações do site
+        </a>
+        <a href="{% url 'admin:core_siteflyer_changelist' %}">
+            <i data-lucide="image"></i>
+            Flyers e banners
+        </a>
+        <a href="{% url 'admin:core_galleryitem_changelist' %}">
+            <i data-lucide="images"></i>
+            Galeria e vídeos
+        </a>
+        <a href="{% url 'admin:core_teammember_changelist' %}">
+            <i data-lucide="badge-user"></i>
+            A Nossa Equipa
+        </a>
+        <a href="{% url 'admin:core_provinceoffice_changelist' %}">
+            <i data-lucide="map-pin"></i>
+            Divisões provinciais
+        </a>
+        <a href="{% url 'admin:core_faq_changelist' %}">
+            <i data-lucide="circle-help"></i>
+            FAQ
+        </a>
+    </div>
+
+    <div class="acsol-nav-group">
+        <h2>Configurações</h2>
+        <a href="{% url 'admin:core_chatbotconfig_changelist' %}">
+            <i data-lucide="bot"></i>
+            Chatbot IA
+        </a>
+        <a href="{% url 'admin:core_donationsettings_changelist' %}">
+            <i data-lucide="landmark"></i>
+            Configuração de doações
+        </a>
+        <a href="{% url 'admin:core_managernotification_changelist' %}">
+            <i data-lucide="bell-ring"></i>
+            Notificações
+        </a>
+        <a href="{% url 'admin:core_adminactionsnapshot_changelist' %}">
+            <i data-lucide="history"></i>
+            Histórico reversível
+        </a>
+    </div>
+
+    <div class="acsol-nav-note">
+        <strong>ACSOL Angola</strong>
+        <span>Conteúdo, doações e gestão institucional.</span>
+    </div>
+</nav>
+{% endblock %}

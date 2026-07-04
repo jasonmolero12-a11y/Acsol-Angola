@@ -1,0 +1,2089 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-AO">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ACSOL - Acao de Solidariedade em Angola. Associacao dedicada ao desenvolvimento comunitario, apoio social e projetos humanitarios em Angola." />
+  <meta name="keywords" content="ACSOL, Angola, solidariedade, voluntariado, doacoes, projetos sociais, humanitario, ONG Angola" />
+  <meta name="author" content="ACSOL - Angola" />
+  <meta property="og:title" content="ACSOL - Acao de Solidariedade em Angola" />
+  <meta property="og:description" content="Trabalhamos pela transformacao social e pelo bem-estar das comunidades angolanas." />
+  <meta property="og:type" content="website" />
+  <title>{{ site_config.nome|default:'ACSOL - Acao de Solidariedade em Angola' }}</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet" />
+  <link href="{% static 'css/site.css' %}" rel="stylesheet" />
+</head>
+<body>
+<!-- ═══════════════════════════════════════════
+     NAVBAR
+════════════════════════════════════════════ -->
+<nav class="navbar navbar-expand-lg fixed-top" id="navbar">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center gap-3" href="#" onclick="showSection('home')">
+      <img class="acsol-logo-img" src="{% static 'img/acsol-logo.jpg' %}" alt="Logo ACSOL Angola" />
+      <div>
+        <span class="navbar-brand-text">ACSOL</span>
+        <span class="navbar-brand-sub">Ação de Solidariedade em Angola</span>
+      </div>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-1">
+        <li class="nav-item"><a class="nav-link nav-link-custom active" href="#" onclick="showSection('home')"><i class="bi bi-house me-1"></i>Início</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="#" onclick="showSection('about')"><i class="bi bi-info-circle me-1"></i>Quem Somos</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="#" onclick="showSection('projects')"><i class="bi bi-folder me-1"></i>Projetos</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="#" onclick="showSection('news')"><i class="bi bi-newspaper me-1"></i>Notícias</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="#" onclick="showSection('gallery')"><i class="bi bi-images me-1"></i>Galeria</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="#" onclick="showSection('videos')"><i class="bi bi-camera-video me-1"></i>Vídeos</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="#" onclick="showSection('divisions')"><i class="bi bi-geo-alt me-1"></i>Divisões</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="#" onclick="showSection('volunteer')"><i class="bi bi-people me-1"></i>Voluntariado</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="#" onclick="showSection('partners')"><i class="bi bi-handshake me-1"></i>Parceiros</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="#" onclick="showSection('faq')"><i class="bi bi-question-circle me-1"></i>FAQ</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="#" onclick="showSection('contact')"><i class="bi bi-envelope me-1"></i>Contactos</a></li>
+        <li class="nav-item ms-lg-2">
+          <a class="nav-link btn-nav-donate" href="#" onclick="showSection('donations')"><i class="bi bi-heart-fill me-1"></i>Como Ajudar</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════
+     HOME SECTION
+════════════════════════════════════════════ -->
+<div id="section-home" class="page-section active">
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="container position-relative" style="z-index:2;">
+      <div class="row align-items-center min-vh-100 py-5">
+        <div class="col-lg-7 col-xl-6">
+          <div class="animate__animated animate__fadeInUp">
+            <div class="hero-badge"><i class="bi bi-geo-alt me-1"></i>Angola · Desde 2010</div>
+            <h1 class="hero-title">
+              Construindo um <span>Angola</span> mais <span>Solidário</span>
+            </h1>
+            <p class="hero-subtitle">
+              A ACSOL – Ação de Solidariedade em Angola trabalha diariamente pela transformação social, desenvolvimento comunitário e dignidade das comunidades angolanas.
+            </p>
+            <div class="d-flex flex-wrap gap-3">
+              <a href="#" class="btn-hero-primary" onclick="showSection('about')">
+                <i class="bi bi-play-circle me-2"></i>Conheça-nos
+              </a>
+              <a href="#" class="btn-hero-outline" onclick="showSection('donations')">
+                <i class="bi bi-heart me-2"></i>Fazer Doação
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5 d-none d-lg-flex justify-content-end animate__animated animate__fadeInRight">
+          <div class="row g-3 w-100" style="max-width:380px;">
+            <div class="col-6">
+              <div class="rounded-3 overflow-hidden" style="height:180px;">
+                <img src="https://images.pexels.com/photos/34984576/pexels-photo-34984576.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=840&w=1200" alt="Voluntários ACSOL" class="w-100 h-100" style="object-fit:cover;" />
+              </div>
+            </div>
+            <div class="col-6 mt-4">
+              <div class="rounded-3 overflow-hidden" style="height:180px;">
+                <img src="https://images.pexels.com/photos/34984576/pexels-photo-34984576.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=840&w=1200" alt="Comunidade" class="w-100 h-100" style="object-fit:cover;" />
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="rounded-3 overflow-hidden" style="height:140px;">
+                <img src="https://images.pexels.com/photos/34984576/pexels-photo-34984576.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=840&w=1200" alt="Solidariedade Angola" class="w-100 h-100" style="object-fit:cover;" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll-down" onclick="document.getElementById('stats-section').scrollIntoView({behavior:'smooth'})">
+      <i class="bi bi-chevron-double-down"></i>
+    </div>
+  </section>
+
+  <!-- HIGHLIGHT STRIP -->
+  <div class="highlight-strip">
+    <div class="highlight-strip-inner" id="strip-inner">
+      <span><i class="bi bi-check-circle-fill"></i>+15 anos de solidariedade</span>
+      <span><i class="bi bi-people-fill"></i>+5.000 beneficiários</span>
+      <span><i class="bi bi-geo-alt-fill"></i>12 províncias cobertas</span>
+      <span><i class="bi bi-heart-fill"></i>+200 voluntários ativos</span>
+      <span><i class="bi bi-folder-fill"></i>48 projetos realizados</span>
+      <span><i class="bi bi-award-fill"></i>Reconhecida pelo MINJUSDH</span>
+      <span><i class="bi bi-check-circle-fill"></i>+15 anos de solidariedade</span>
+      <span><i class="bi bi-people-fill"></i>+5.000 beneficiários</span>
+      <span><i class="bi bi-geo-alt-fill"></i>12 províncias cobertas</span>
+      <span><i class="bi bi-heart-fill"></i>+200 voluntários ativos</span>
+      <span><i class="bi bi-folder-fill"></i>48 projetos realizados</span>
+      <span><i class="bi bi-award-fill"></i>Reconhecida pelo MINJUSDH</span>
+    </div>
+  </div>
+
+  {% if home_flyers %}
+  <section class="flyer-section">
+    <div class="container">
+      <div class="flyer-grid">
+        {% for flyer in home_flyers %}
+          <article class="site-flyer">
+            {% if flyer.imagem %}<img src="{{ flyer.imagem.url }}" alt="{{ flyer.titulo }}" />{% endif %}
+            <div class="site-flyer-body">
+              <h3>{{ flyer.titulo }}</h3>
+              {% if flyer.subtitulo %}<p>{{ flyer.subtitulo }}</p>{% endif %}
+              {% if flyer.link_texto and flyer.link_url %}<a href="{{ flyer.link_url }}">{{ flyer.link_texto }} <i class="bi bi-arrow-right"></i></a>{% endif %}
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- STATS -->
+  <section id="stats-section" class="stats-section">
+    <div class="container">
+      <div class="row g-4 justify-content-center">
+        <div class="col-6 col-md-3">
+          <div class="stat-card">
+            <div class="stat-icon"><i class="bi bi-people-fill"></i></div>
+            <div class="stat-number"><span class="counter" data-target="5248">0</span>+</div>
+            <div class="stat-label">Beneficiários Diretos</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="stat-card">
+            <div class="stat-icon"><i class="bi bi-folder-fill"></i></div>
+            <div class="stat-number"><span class="counter" data-target="48">0</span></div>
+            <div class="stat-label">Projetos Realizados</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="stat-card">
+            <div class="stat-icon"><i class="bi bi-heart-fill"></i></div>
+            <div class="stat-number"><span class="counter" data-target="213">0</span>+</div>
+            <div class="stat-label">Voluntários Ativos</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="stat-card">
+            <div class="stat-icon"><i class="bi bi-geo-alt-fill"></i></div>
+            <div class="stat-number"><span class="counter" data-target="12">0</span></div>
+            <div class="stat-label">Províncias Cobertas</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED PROJECTS HOME -->
+  <section class="py-5 section-bg-alt">
+    <div class="container py-4">
+      <div class="text-center mb-5">
+        <span class="section-label"><i class="bi bi-star me-1"></i>Projetos</span>
+        <h2 class="section-title">Projetos em Destaque</h2>
+        <div class="section-divider mx-auto mt-3"></div>
+        <p class="text-muted mt-3" style="max-width:520px;margin:0 auto;">Conheça algumas das iniciativas que estamos a desenvolver nas comunidades angolanas.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card-custom h-100">
+            <div class="card-img-wrap">
+              <img src="https://images.pexels.com/photos/34984576/pexels-photo-34984576.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=840&w=1200" alt="Projeto Educação" />
+            </div>
+            <div class="p-4">
+              <span class="card-badge verde">Educação</span>
+              <h5 class="fw-bold text-primary-custom mt-1" style="color:var(--azul-primario);">Escola para Todos</h5>
+              <p class="text-muted small">Apoio escolar e material didático para crianças em situação de vulnerabilidade nas províncias de Luanda e Malanje.</p>
+              <div class="mt-3">
+                <div class="d-flex justify-content-between mb-1" style="font-size:0.78rem;color:var(--cinza-medio);">
+                  <span>Progresso</span><span>78%</span>
+                </div>
+                <div class="progress-custom"><div class="progress-bar" style="width:78%"></div></div>
+              </div>
+              <div class="mt-3">
+                <span class="project-status ativo"><span></span>Em Andamento</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-custom h-100">
+            <div class="card-img-wrap">
+              <img src="https://images.pexels.com/photos/34984576/pexels-photo-34984576.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=840&w=1200" alt="Projeto Água" />
+            </div>
+            <div class="p-4">
+              <span class="card-badge">Água e Saneamento</span>
+              <h5 class="fw-bold mt-1" style="color:var(--azul-primario);">Água Limpa Angola</h5>
+              <p class="text-muted small">Instalação de sistemas de abastecimento de água potável em comunidades rurais do Huambo e Bié.</p>
+              <div class="mt-3">
+                <div class="d-flex justify-content-between mb-1" style="font-size:0.78rem;color:var(--cinza-medio);">
+                  <span>Progresso</span><span>55%</span>
+                </div>
+                <div class="progress-custom"><div class="progress-bar" style="width:55%"></div></div>
+              </div>
+              <div class="mt-3">
+                <span class="project-status andamento"><span></span>Em Execução</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-custom h-100">
+            <div class="card-img-wrap">
+              <img src="https://images.pexels.com/photos/34984576/pexels-photo-34984576.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=840&w=1200" alt="Projeto Alimentação" />
+            </div>
+            <div class="p-4">
+              <span class="card-badge amarelo">Segurança Alimentar</span>
+              <h5 class="fw-bold mt-1" style="color:var(--azul-primario);">Cestas Solidárias</h5>
+              <p class="text-muted small">Distribuição de cabazes alimentares a famílias vulneráveis em Luanda, Benguela e Cabinda.</p>
+              <div class="mt-3">
+                <div class="d-flex justify-content-between mb-1" style="font-size:0.78rem;color:var(--cinza-medio);">
+                  <span>Progresso</span><span>92%</span>
+                </div>
+                <div class="progress-custom"><div class="progress-bar" style="width:92%"></div></div>
+              </div>
+              <div class="mt-3">
+                <span class="project-status ativo"><span></span>Em Andamento</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-5">
+        <a href="#" class="btn-primary-custom" onclick="showSection('projects')">Ver Todos os Projetos <i class="bi bi-arrow-right ms-1"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPLETED PROJECTS HOME -->
+  <section class="py-5 completed-projects-section">
+    <div class="container py-4">
+      <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-end gap-3 mb-5">
+        <div>
+          <span class="section-label"><i class="bi bi-check2-circle me-1"></i>Impacto comprovado</span>
+          <h2 class="section-title mb-0">Projetos Realizados</h2>
+          <div class="section-divider left mt-3"></div>
+        </div>
+        <p class="text-muted mb-0" style="max-width:520px;">Projetos concluídos pela ACSOL com impacto direto nas comunidades. Pode editar fotos, descrições e estado no painel administrativo.</p>
+      </div>
+      <div class="completed-projects-grid">
+        {% for project in completed_projects %}
+          <article class="completed-project-card">
+            <div class="completed-project-media">
+              {% if project.imagem %}
+                <img src="{{ project.imagem.url }}" alt="{{ project.titulo }}" />
+              {% else %}
+                <img src="https://images.pexels.com/photos/34984576/pexels-photo-34984576.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=840&w=1200" alt="{{ project.titulo }}" />
+              {% endif %}
+              <span>{{ project.get_estado_display }}</span>
+            </div>
+            <div class="completed-project-body">
+              <h3>{{ project.titulo }}</h3>
+              <p>{{ project.descricao|truncatewords:28 }}</p>
+              <div class="completed-project-meta">
+                {% if project.localizacao %}<span><i class="bi bi-geo-alt"></i>{{ project.localizacao }}</span>{% endif %}
+                <span><i class="bi bi-people"></i>{{ project.beneficiarios }} beneficiários</span>
+              </div>
+            </div>
+          </article>
+        {% empty %}
+          <div class="completed-project-empty">
+            <i class="bi bi-folder-check"></i>
+            <strong>Adicione projetos realizados no admin.</strong>
+            <span>Em `Projetos`, escolha estado `Concluído`, coloque foto e descrição.</span>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- RECENT NEWS HOME -->
+  <section class="py-5">
+    <div class="container py-4">
+      <div class="text-center mb-5">
+        <span class="section-label"><i class="bi bi-newspaper me-1"></i>Notícias</span>
+        <h2 class="section-title">Notícias Recentes</h2>
+        <div class="section-divider mx-auto mt-3"></div>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card-custom h-100">
+            <div class="card-img-wrap" style="height:200px;">
+              <img src="https://images.pexels.com/photos/34984576/pexels-photo-34984576.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=840&w=1200" alt="Notícia 1" />
+            </div>
+            <div class="p-4">
+              <span class="card-badge verde">Voluntariado</span>
+              <div class="news-card-date mt-2"><i class="bi bi-calendar3 me-1"></i>15 de Maio, 2025</div>
+              <div class="news-card-title">ACSOL recruta 50 novos voluntários para 2025</div>
+              <div class="news-card-excerpt">A associação lança nova campanha de recrutamento de voluntários para reforçar as equipas de campo em todo o território nacional.</div>
+              <a href="#" class="btn-outline-custom mt-3 d-inline-block" style="font-size:0.8rem;padding:8px 20px;" onclick="showSection('news')">Ler mais <i class="bi bi-arrow-right ms-1"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-custom h-100">
+            <div class="card-img-wrap" style="height:200px;">
+              <img src="https://images.pexels.com/photos/34984576/pexels-photo-34984576.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=840&w=1200" alt="Notícia 2" />
+            </div>
+            <div class="p-4">
+              <span class="card-badge">Projetos</span>
+              <div class="news-card-date mt-2"><i class="bi bi-calendar3 me-1"></i>2 de Abril, 2025</div>
+              <div class="news-card-title">Distribuição de kits escolares beneficia 1.200 crianças</div>
+              <div class="news-card-excerpt">Em parceria com entidades locais, a ACSOL distribuiu kits escolares completos a crianças nas zonas periurbanas de Luanda.</div>
+              <a href="#" class="btn-outline-custom mt-3 d-inline-block" style="font-size:0.8rem;padding:8px 20px;" onclick="showSection('news')">Ler mais <i class="bi bi-arrow-right ms-1"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-custom h-100">
+            <div class="card-img-wrap" style="height:200px;">
+              <img src="https://images.pexels.com/photos/34984576/pexels-photo-34984576.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=840&w=1200" alt="Notícia 3" />
+            </div>
+            <div class="p-4">
+              <span class="card-badge amarelo">Evento</span>
+              <div class="news-card-date mt-2"><i class="bi bi-calendar3 me-1"></i>18 de Março, 2025</div>
+              <div class="news-card-title">Gala de Solidariedade arrecada 3 milhões de Kz</div>
+              <div class="news-card-excerpt">O evento anual da ACSOL reuniu mais de 300 convidados e arrecadou fundos para financiar projetos de saúde e educação.</div>
+              <a href="#" class="btn-outline-custom mt-3 d-inline-block" style="font-size:0.8rem;padding:8px 20px;" onclick="showSection('news')">Ler mais <i class="bi bi-arrow-right ms-1"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY PREVIEW HOME -->
+  <section class="py-5 section-bg-alt">
+    <div class="container py-4">
+      <div class="text-center mb-5">
+        <span class="section-label"><i class="bi bi-images me-1"></i>Galeria</span>
+        <h2 class="section-title">Momentos que Marcam</h2>
+        <div class="section-divider mx-auto mt-3"></div>
+      </div>
+      <div class="row g-3">
+        <div class="col-md-4 col-6">
+          <div class="gallery-item rounded-3" onclick="openLightbox(this.querySelector('img').src)">
+            <img src="https://images.pexels.com/photos/34984576/pexels-photo-34984576.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=840&w=1200" alt="Galeria 1" class="rounded-3" style="height:220px;width:100%;object-fit:cover;" />
+            <div class="gallery-overlay"><i class="bi bi-zoom-in"></i></div>
+          </div>
+        </div>
+        <div class="col-md-4 col-6">
+          <div class="gallery-item rounded-3" onclick="openLightbox(this.querySelector('img').src)">
+            <img src="https://images.pexels.com/photos/34984576/pexels-photo-34984576.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=840&w=1200" alt="Galeria 2" class="rounded-3" style="height:220px;width:100%;object-fit:cover;" />
+            <div class="gallery-overlay"><i class="bi bi-zoom-in"></i></div>
+          </div>
+        </div>
+        <div class="col-md-4 col-6">
+          <div class="gallery-item rounded-3" onclick="openLightbox(this.querySelector('img').src)">
+            <img src="https://images.pexels.com/photos/34984576/pexels-photo-34984576.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=840&w=1200" alt="Galeria 3" class="rounded-3" style="height:220px;width:100%;object-fit:cover;" />
+            <div class="gallery-overlay"><i class="bi bi-zoom-in"></i></div>
+          </div>
+        </div>
+        <div class="col-md-4 col-6 d-none d-md-block">
+          <div class="gallery-item rounded-3" onclick="openLightbox(this.querySelector('img').src)">
+            <img src="https://images.pexels.com/photos/34984576/pexels-photo-34984576.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=840&w=1200" alt="Galeria 4" class="rounded-3" style="height:220px;width:100%;object-fit:cover;" />
+            <div class="gallery-overlay"><i class="bi bi-zoom-in"></i></div>
+          </div>
+        </div>
+        <div class="col-md-4 col-6 d-none d-md-block">
+          <div class="gallery-item rounded-3" onclick="openLightbox(this.querySelector('img').src)">
+            <img src="https://images.pexels.com/photos/34984576/pexels-photo-34984576.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=840&w=1200" alt="Galeria 5" class="rounded-3" style="height:220px;width:100%;object-fit:cover;" />
+            <div class="gallery-overlay"><i class="bi bi-zoom-in"></i></div>
+          </div>
+        </div>
+        <div class="col-md-4 col-6 d-none d-md-block">
+          <div class="gallery-item rounded-3" onclick="openLightbox(this.querySelector('img').src)">
+            <img src="https://images.pexels.com/photos/34984576/pexels-photo-34984576.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=840&w=1200" alt="Galeria 6" class="rounded-3" style="height:220px;width:100%;object-fit:cover;" />
+            <div class="gallery-overlay"><i class="bi bi-zoom-in"></i></div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-4">
+        <a href="#" class="btn-outline-custom" onclick="showSection('gallery')">Ver Galeria Completa <i class="bi bi-images ms-1"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA VOLUNTEER -->
+  <section class="cta-volunteer">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-7 text-center">
+          <i class="bi bi-people-fill" style="font-size:3rem;color:rgba(255,255,255,0.4);"></i>
+          <h2 class="mt-3">Torne-se Voluntário ACSOL</h2>
+          <p style="color:rgba(255,255,255,0.8);font-size:1rem;max-width:480px;margin:0 auto 2rem;">Junte-se à nossa equipa e contribua com o seu talento, tempo e dedicação para transformar vidas em Angola.</p>
+          <a href="#" class="btn-cta-white" onclick="showSection('volunteer')">
+            <i class="bi bi-person-plus me-2"></i>Quero ser Voluntário
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNERS PREVIEW HOME -->
+  <section class="py-5">
+    <div class="container py-4">
+      <div class="text-center mb-5">
+        <span class="section-label"><i class="bi bi-handshake me-1"></i>Parceiros</span>
+        <h2 class="section-title">{{ site_config.titulo_parceiros|default:"Os Nossos Parceiros" }}</h2>
+        {% if site_config.texto_parceiros %}
+          <p class="text-muted mt-3 mb-0" style="max-width:620px;margin:0 auto;">{{ site_config.texto_parceiros }}</p>
+        {% endif %}
+        <div class="section-divider mx-auto mt-3"></div>
+      </div>
+      <div class="row g-4 align-items-center justify-content-center">
+        {% for partner in partners|slice:":6" %}
+        <div class="col-6 col-md-2 text-center">
+          {% if partner.website %}
+          <a href="{{ partner.website }}" target="_blank" rel="noopener" class="p-3 rounded-3 partner-mini-card">
+          {% else %}
+          <div class="p-3 rounded-3 partner-mini-card">
+          {% endif %}
+              {% if partner.logo %}
+                <img src="{{ partner.logo.url }}" alt="{{ partner.nome }}" class="partner-mini-logo" />
+              {% else %}
+                <i class="bi bi-building" style="font-size:2.5rem;color:var(--azul-secundario);"></i>
+              {% endif %}
+              <div class="partner-mini-name">{{ partner.nome }}</div>
+          {% if partner.website %}
+          </a>
+          {% else %}
+          </div>
+          {% endif %}
+        </div>
+        {% empty %}
+        <div class="col-4 col-md-2 text-center">
+          <div class="p-3 rounded-3" style="background:var(--cinza-claro);">
+            <i class="bi bi-building" style="font-size:2.5rem;color:var(--azul-secundario);"></i>
+            <div style="font-size:0.7rem;margin-top:6px;color:var(--cinza-medio);font-weight:600;">MINJUSDH</div>
+          </div>
+        </div>
+        <div class="col-4 col-md-2 text-center">
+          <div class="p-3 rounded-3" style="background:var(--cinza-claro);">
+            <i class="bi bi-globe" style="font-size:2.5rem;color:var(--azul-secundario);"></i>
+            <div style="font-size:0.7rem;margin-top:6px;color:var(--cinza-medio);font-weight:600;">UNICEF Angola</div>
+          </div>
+        </div>
+        <div class="col-4 col-md-2 text-center">
+          <div class="p-3 rounded-3" style="background:var(--cinza-claro);">
+            <i class="bi bi-heart-pulse" style="font-size:2.5rem;color:var(--azul-secundario);"></i>
+            <div style="font-size:0.7rem;margin-top:6px;color:var(--cinza-medio);font-weight:600;">OMS Angola</div>
+          </div>
+        </div>
+        <div class="col-4 col-md-2 text-center">
+          <div class="p-3 rounded-3" style="background:var(--cinza-claro);">
+            <i class="bi bi-bank" style="font-size:2.5rem;color:var(--azul-secundario);"></i>
+            <div style="font-size:0.7rem;margin-top:6px;color:var(--cinza-medio);font-weight:600;">BNA</div>
+          </div>
+        </div>
+        <div class="col-4 col-md-2 text-center">
+          <div class="p-3 rounded-3" style="background:var(--cinza-claro);">
+            <i class="bi bi-mortarboard" style="font-size:2.5rem;color:var(--azul-secundario);"></i>
+            <div style="font-size:0.7rem;margin-top:6px;color:var(--cinza-medio);font-weight:600;">UAN</div>
+          </div>
+        </div>
+        <div class="col-4 col-md-2 text-center">
+          <div class="p-3 rounded-3" style="background:var(--cinza-claro);">
+            <i class="bi bi-shield-check" style="font-size:2.5rem;color:var(--azul-secundario);"></i>
+            <div style="font-size:0.7rem;margin-top:6px;color:var(--cinza-medio);font-weight:600;">Cruz Vermelha AO</div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- DONATION CTA HOME -->
+  <section class="py-5 section-bg-blue">
+    <div class="container py-4 text-center">
+      <i class="bi bi-heart-fill text-warning" style="font-size:3rem;"></i>
+      <h2 style="color:#fff;font-size:clamp(1.6rem,3vw,2.4rem);margin-top:1rem;">A Sua Doação Transforma Vidas</h2>
+      <p style="color:rgba(255,255,255,0.75);max-width:500px;margin:1rem auto 2rem;">Cada contribuição, por menor que seja, ajuda-nos a continuar os nossos projetos e a levar esperança a quem mais precisa.</p>
+      <a href="#" class="btn btn-warning fw-bold px-5 py-3 rounded-pill" onclick="showSection('donations')">
+        <i class="bi bi-gift me-2"></i>Contribuir Agora
+      </a>
+    </div>
+  </section>
+
+  <!-- QUICK CONTACT HOME -->
+  <section class="py-5 section-bg-alt">
+    <div class="container py-4">
+      <div class="text-center mb-5">
+        <span class="section-label"><i class="bi bi-envelope me-1"></i>Contacto</span>
+        <h2 class="section-title">Fale Connosco</h2>
+        <div class="section-divider mx-auto mt-3"></div>
+      </div>
+      <div class="row g-4 justify-content-center">
+        <div class="col-md-4">
+          <div class="text-center p-4 rounded-3 bg-white shadow-sm h-100">
+            <div class="contact-icon-wrap mx-auto mb-3" style="width:64px;height:64px;font-size:1.8rem;">
+              <i class="bi bi-telephone-fill"></i>
+            </div>
+            <h6 class="fw-bold" style="color:var(--azul-primario);">Telefone</h6>
+            <p class="text-muted small mb-0">+244 923 456 789<br/>+244 912 345 678</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="text-center p-4 rounded-3 bg-white shadow-sm h-100">
+            <div class="contact-icon-wrap mx-auto mb-3" style="width:64px;height:64px;font-size:1.8rem;">
+              <i class="bi bi-envelope-fill"></i>
+            </div>
+            <h6 class="fw-bold" style="color:var(--azul-primario);">Email</h6>
+            <p class="text-muted small mb-0">geral@acsol.ao<br/>voluntarios@acsol.ao</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="text-center p-4 rounded-3 bg-white shadow-sm h-100">
+            <div class="contact-icon-wrap mx-auto mb-3" style="width:64px;height:64px;font-size:1.8rem;">
+              <i class="bi bi-geo-alt-fill"></i>
+            </div>
+            <h6 class="fw-bold" style="color:var(--azul-primario);">Morada</h6>
+            <p class="text-muted small mb-0">Rua da Solidariedade, 123<br/>Luanda, Angola</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /HOME -->
+
+
+<!-- ═══════════════════════════════════════════
+     ABOUT SECTION
+════════════════════════════════════════════ -->
+<div id="section-about" class="page-section">
+  <div class="page-hero">
+    <nav aria-label="breadcrumb" class="breadcrumb-custom mb-3">
+      <ol class="breadcrumb justify-content-center mb-0">
+        <li class="breadcrumb-item"><a href="#" onclick="showSection('home')">Início</a></li>
+        <li class="breadcrumb-item active">Quem Somos</li>
+      </ol>
+    </nav>
+    <h1>Quem Somos</h1>
+    <p>Conheça a história, missão, visão e valores da ACSOL – Angola</p>
+  </div>
+
+  <!-- HISTORY -->
+  <section class="py-5">
+    <div class="container py-4">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-6">
+          <div class="about-img-wrap">
+            {% if site_config and site_config.imagem_sobre %}
+              <img class="about-photo" src="{{ site_config.imagem_sobre.url }}" alt="ACSOL Angola" />
+            {% elif site_config and site_config.logo %}
+              <img class="about-photo about-photo-contain" src="{{ site_config.logo.url }}" alt="ACSOL Angola" />
+            {% else %}
+              <img class="about-photo about-photo-contain" src="{% static 'img/acsol-logo.jpg' %}" alt="ACSOL Angola" />
+            {% endif %}
+            <div class="about-img-badge">
+              <div style="font-size:2rem;font-weight:700;font-family:'Playfair Display',serif;">15+</div>
+              <div style="font-size:0.82rem;color:rgba(255,255,255,0.75);">Anos de Solidariedade</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <span class="section-label">Nossa História</span>
+          <h2 class="section-title">Uma Jornada de Solidariedade</h2>
+          <div class="section-divider left"></div>
+          <p class="text-muted mt-4 mb-4" style="line-height:1.8;">
+            A ACSOL – Ação de Solidariedade em Angola foi fundada em 2010 por um grupo de cidadãos angolanos comprometidos com a transformação social do país. Desde a sua criação, a associação tem trabalhado incansavelmente para promover o desenvolvimento humano sustentável, combater a pobreza e garantir os direitos básicos das comunidades mais vulneráveis.
+          </p>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-year">2010 – Fundação</div>
+              <div class="timeline-text">Criação da ACSOL em Luanda com 12 membros fundadores.</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-year">2013 – Expansão</div>
+              <div class="timeline-text">Abertura de delegações em Benguela, Huambo e Malanje.</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-year">2016 – Reconhecimento</div>
+              <div class="timeline-text">Reconhecimento pelo Ministério da Justiça e Direitos Humanos.</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-year">2020 – Resposta COVID-19</div>
+              <div class="timeline-text">Distribuição de 10.000 kits de higiene e cestas alimentares durante a pandemia.</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-year">2025 – Presente</div>
+              <div class="timeline-text">Mais de 5.000 beneficiários e 48 projetos concluídos em 12 províncias.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION VISION VALUES -->
+  <section class="py-5 section-bg-alt">
+    <div class="container py-4">
+      <div class="text-center mb-5">
+        <span class="section-label">Identidade Institucional</span>
+        <h2 class="section-title">Missão, Visão e Valores</h2>
+        <div class="section-divider mx-auto mt-3"></div>
+      </div>
+      <div class="row g-4 mb-5">
+        <div class="col-md-6">
+          <div class="p-4 rounded-4 h-100" style="background:linear-gradient(135deg,var(--azul-primario),#1e4d8c);color:#fff;">
+            <i class="bi bi-bullseye" style="font-size:2.5rem;color:var(--dourado);"></i>
+            <h4 class="mt-3 mb-3" style="font-family:'Playfair Display',serif;color:#fff;">Nossa Missão</h4>
+            <p style="color:rgba(255,255,255,0.85);line-height:1.8;font-size:0.95rem;">
+              {{ site_config.missao|default:"Promover o desenvolvimento humano, social e comunitário em Angola, através de ações de solidariedade, apoio social, educação e saúde, contribuindo para a construção de uma sociedade mais justa, equitativa e sustentável." }}
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="p-4 rounded-4 h-100" style="background:linear-gradient(135deg,#065f46,#059669);color:#fff;">
+            <i class="bi bi-eye" style="font-size:2.5rem;color:rgba(255,255,255,0.7);"></i>
+            <h4 class="mt-3 mb-3" style="font-family:'Playfair Display',serif;color:#fff;">Nossa Visão</h4>
+            <p style="color:rgba(255,255,255,0.85);line-height:1.8;font-size:0.95rem;">
+              {{ site_config.visao|default:"Ser uma associação de referência em Angola no domínio da solidariedade e do desenvolvimento social, reconhecida pela qualidade das suas intervenções, pela transparência na gestão e pelo impacto positivo nas comunidades que serve." }}
+            </p>
+          </div>
+        </div>
+      </div>
+      <h4 class="text-center mb-3" style="color:var(--azul-primario);font-family:'Playfair Display',serif;">{{ site_config.titulo_valores|default:"Os Nossos Valores" }}</h4>
+      {% if site_config.texto_valores %}
+        <p class="text-muted text-center mb-4" style="max-width:680px;margin:0 auto;">{{ site_config.texto_valores }}</p>
+      {% endif %}
+      <div class="row g-3">
+        {% for value in site_values %}
+        <div class="col-md-4"><div class="value-card"><i class="bi bi-check-circle-fill value-icon"></i><div><strong style="color:var(--azul-primario);">{{ value }}</strong><p class="text-muted small mb-0 mt-1">Valor institucional editável no painel administrativo.</p></div></div></div>
+        {% empty %}
+        <div class="col-md-4"><div class="value-card"><i class="bi bi-heart-fill value-icon"></i><div><strong style="color:var(--azul-primario);">Solidariedade</strong><p class="text-muted small mb-0 mt-1">Comprometemo-nos com o bem-estar do próximo em qualquer circunstância.</p></div></div></div>
+        <div class="col-md-4"><div class="value-card"><i class="bi bi-shield-check value-icon"></i><div><strong style="color:var(--azul-primario);">Integridade</strong><p class="text-muted small mb-0 mt-1">Atuamos com honestidade, ética e transparência em todas as nossas ações.</p></div></div></div>
+        <div class="col-md-4"><div class="value-card"><i class="bi bi-people-fill value-icon"></i><div><strong style="color:var(--azul-primario);">Inclusão</strong><p class="text-muted small mb-0 mt-1">Valorizamos a diversidade e garantimos igualdade de acesso aos nossos serviços.</p></div></div></div>
+        <div class="col-md-4"><div class="value-card"><i class="bi bi-lightning-charge value-icon"></i><div><strong style="color:var(--azul-primario);">Inovação</strong><p class="text-muted small mb-0 mt-1">Buscamos soluções criativas e eficazes para os desafios sociais de Angola.</p></div></div></div>
+        <div class="col-md-4"><div class="value-card"><i class="bi bi-check-circle value-icon"></i><div><strong style="color:var(--azul-primario);">Responsabilidade</strong><p class="text-muted small mb-0 mt-1">Prestamos contas às comunidades, parceiros e doadores com rigor.</p></div></div></div>
+        <div class="col-md-4"><div class="value-card"><i class="bi bi-globe value-icon"></i><div><strong style="color:var(--azul-primario);">Sustentabilidade</strong><p class="text-muted small mb-0 mt-1">Desenvolvemos projetos duradouros que geram impacto a longo prazo.</p></div></div></div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="py-5">
+    <div class="container py-4">
+      <div class="text-center mb-5">
+        <span class="section-label"><i class="bi bi-people me-1"></i>Equipa</span>
+        <h2 class="section-title">A Nossa Equipa</h2>
+        <div class="section-divider mx-auto mt-3"></div>
+        <p class="text-muted mt-3" style="max-width:500px;margin:0 auto;">Conheça as pessoas que tornam possível a missão da ACSOL todos os dias.</p>
+      </div>
+      <div class="row g-4 justify-content-center">
+        {% for member in team_members %}
+        <div class="col-md-3 col-sm-6">
+          <div class="team-card">
+            {% if member.foto %}
+              <div class="team-avatar team-photo"><img src="{{ member.foto.url }}" alt="{{ member.nome }}" /></div>
+            {% else %}
+              <div class="team-avatar"><i class="bi bi-person-circle"></i></div>
+            {% endif %}
+            <div class="team-info">
+              <div class="team-name">{{ member.nome }}</div>
+              <div class="team-role">{{ member.cargo }}</div>
+              {% if member.biografia %}<p class="text-muted small mt-2">{{ member.biografia|truncatewords:24 }}</p>{% endif %}
+              <div class="d-flex justify-content-center gap-2 mt-3">
+                <a href="#" class="social-link dark"><i class="bi bi-linkedin"></i></a>
+                <a href="#" class="social-link dark"><i class="bi bi-envelope"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% empty %}
+        <div class="col-md-3 col-sm-6">
+          <div class="team-card">
+            <div class="team-avatar"><i class="bi bi-person-circle"></i></div>
+            <div class="team-info">
+              <div class="team-name">Equipa ACSOL</div>
+              <div class="team-role">Gestão institucional</div>
+              <p class="text-muted small mt-2">Adicione membros, cargos, fotos e biografias no painel administrativo.</p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTITUTIONAL MESSAGE -->
+  <section class="py-5 section-bg-blue">
+    <div class="container py-4">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <i class="bi bi-chat-quote-fill" style="font-size:3rem;color:var(--dourado);"></i>
+          <blockquote class="mt-4" style="color:#fff;font-family:'Playfair Display',serif;font-size:clamp(1.2rem,2.5vw,1.7rem);line-height:1.5;font-style:italic;">
+            "A solidariedade não é um sentimento superficial; é a determinação firme e perseverante de se empenhar pelo bem comum. Em Angola, cada vida melhorada é uma vitória de todos."
+          </blockquote>
+          <div class="mt-4" style="color:rgba(255,255,255,0.65);font-size:0.9rem;">
+            <strong style="color:#fff;">Dr. António Fernandes</strong><br/>Presidente da ACSOL – Angola
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /ABOUT -->
+
+
+<!-- ═══════════════════════════════════════════
+     PROJECTS SECTION
+════════════════════════════════════════════ -->
+<div id="section-projects" class="page-section">
+  <div class="page-hero">
+    <nav aria-label="breadcrumb" class="breadcrumb-custom mb-3">
+      <ol class="breadcrumb justify-content-center mb-0">
+        <li class="breadcrumb-item"><a href="#" onclick="showSection('home')">Início</a></li>
+        <li class="breadcrumb-item active">Projetos</li>
+      </ol>
+    </nav>
+    <h1>Os Nossos Projetos</h1>
+    <p>Conheça todas as iniciativas que a ACSOL desenvolve em Angola</p>
+  </div>
+
+  <section class="py-5">
+    <div class="container py-4">
+      <div class="filter-tabs mb-4">
+        <button class="filter-tab active" onclick="filterProjects('todos', this)">Todos</button>
+        <button class="filter-tab" onclick="filterProjects('educacao', this)">Educação</button>
+        <button class="filter-tab" onclick="filterProjects('saude', this)">Saúde</button>
+        <button class="filter-tab" onclick="filterProjects('agua', this)">Água & Saneamento</button>
+        <button class="filter-tab" onclick="filterProjects('alimentar', this)">Segurança Alimentar</button>
+        <button class="filter-tab" onclick="filterProjects('social', this)">Apoio Social</button>
+      </div>
+
+      <div class="row g-4" id="projects-grid">
+        <!-- Project 1 -->
+        <div class="col-md-6 col-lg-4 project-item" data-cat="educacao">
+          <div class="card-custom h-100">
+            <div class="card-img-wrap">
+              <img src="https://images.pexels.com/photos/34984576/pexels-photo-34984576.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=840&w=1200" alt="Escola para Todos" />
+            </div>
+            <div class="p-4">
+              <span class="card-badge verde">Educação</span>
+              <span class="project-status ativo ms-2">Ativo</span>
+              <h5 class="fw-bold mt-2" style="color:var(--azul-primario);">Escola para Todos</h5>
+              <p class="text-muted small mb-3">Apoio escolar, material didático e formação de professores para crianças em situação de vulnerabilidade.</p>
+              <div class="project-detail-row"><i class="bi bi-geo-alt"></i><span>Luanda & Malanje</span></div>
+              <div class="project-detail-row"><i class="bi bi-people"></i><span>1.200 beneficiários</span></div>
+              <div class="project-detail-row"><i class="bi bi-calendar3"></i><span>Jan 2024 – Dez 2025</span></div>
+              <div class="project-detail-row"><i class="bi bi-cash-stack"></i><span>Orçamento: 15M Kz</span></div>
+              <div class="mt-3">
+                <div class="d-flex justify-content-between mb-1" style="font-size:0.78rem;color:var(--cinza-medio);"><span>Progresso</span><span>78%</span></div>
+                <div class="progress-custom"><div class="progress-bar" style="width:78%"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Project 2 -->
+        <div class="col-md-6 col-lg-4 project-item" data-cat="agua">
+          <div class="card-custom h-100">
+            <div class="card-img-wrap">
+              <img src="https://images.pexels.com/photos/34984576/pexels-photo-34984576.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=840&w=1200" alt="Água Limpa Angola" />
+            </div>
+            <div class="p-4">
+              <span class="card-badge">Água & Saneamento</span>
+              <span class="project-status andamento ms-2">Em Execução</span>
+              <h5 class="fw-bold mt-2" style="color:var(--azul-primario);">Água Limpa Angola</h5>
+              <p class="text-muted small mb-3">Instalação de sistemas de abastecimento de água potável e construção de latrinas em comunidades rurais.</p>
+              <div class="project-detail-row"><i class="bi bi-geo-alt"></i><span>Huambo & Bié</span></div>
+              <div class="project-detail-row"><i class="bi bi-people"></i><span>850 beneficiários</span></div>
+              <div class="project-detail-row"><i class="bi bi-calendar3"></i><span>Mar 2024 – Jun 2025</span></div>
+              <div class="project-detail-row"><i class="bi bi-cash-stack"></i><span>Orçamento: 28M Kz</span></div>
+              <div class="mt-3">
+                <div class="d-flex justify-content-between mb-1" style="font-size:0.78rem;color:var(--cinza-medio);"><span>Progresso</span><span>55%</span></div>
+                <div class="progress-custom"><div class="progress-bar" style="width:55%"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Project 3 -->
+        <div class="col-md-6 col-lg-4 project-item" data-cat="alimentar">
+          <div class="card-custom h-100">
+            <div class="card-img-wrap">
+              <img src="https://images.pexels.com/photos/34984576/pexels-photo-34984576.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=840&w=1200" alt="Cestas Solidárias" />
+            </div>
+            <div class="p-4">
+              <span class="card-badge amarelo">Segurança Alimentar</span>
+              <span class="project-status ativo ms-2">Ativo</span>
+              <h5 class="fw-bold mt-2" style="color:var(--azul-primario);">Cestas Solidárias</h5>
+              <p class="text-muted small mb-3">Distribuição mensal de cabazes alimentares a famílias em situação de insegurança alimentar grave.</p>
+              <div class="project-detail-row"><i class="bi bi-geo-alt"></i><span>Luanda, Benguela & Cabinda</span></div>
+              <div class="project-detail-row"><i class="bi bi-people"></i><span>600 famílias</span></div>
+              <div class="project-detail-row"><i class="bi bi-calendar3"></i><span>Jan 2023 – Dez 2025</span></div>
+              <div class="project-detail-row"><i class="bi bi-cash-stack"></i><span>Orçamento: 22M Kz</span></div>
+              <div class="mt-3">
+                <div class="d-flex justify-content-between mb-1" style="font-size:0.78rem;color:var(--cinza-medio);"><span>Progresso</span><span>92%</span></div>
+                <div class="progress-custom"><div class="progress-bar" style="width:92%"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Project 4 -->
+        <div class="col-md-6 col-lg-4 project-item" data-cat="saude">
+          <div class="card-custom h-100">
+            <div class="card-img-wrap">
+              <img src="https://images.pexels.com/photos/34984576/pexels-photo-34984576.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=840&w=1200" alt="Saúde Comunitária" />
+            </div>
+            <div class="p-4">
+              <span class="card-badge vermelho">Saúde</span>
+              <span class="project-status concluido ms-2">Concluído</span>
+              <h5 class="fw-bold mt-2" style="color:var(--azul-primario);">Saúde para Todos</h5>
+              <p class="text-muted small mb-3">Brigadas de saúde itinerantes com consultas médicas, vacinação e rastreio de doenças crónicas.</p>
+              <div class="project-detail-row"><i class="bi bi-geo-alt"></i><span>Kuanza Sul & Uíge</span></div>
+              <div class="project-detail-row"><i class="bi bi-people"></i><span>2.100 beneficiários</span></div>
+              <div class="project-detail-row"><i class="bi bi-calendar3"></i><span>Jun 2022 – Dez 2023</span></div>
+              <div class="project-detail-row"><i class="bi bi-cash-stack"></i><span>Orçamento: 35M Kz</span></div>
+              <div class="mt-3">
+                <div class="d-flex justify-content-between mb-1" style="font-size:0.78rem;color:var(--cinza-medio);"><span>Progresso</span><span>100%</span></div>
+                <div class="progress-custom"><div class="progress-bar" style="width:100%"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Project 5 -->
+        <div class="col-md-6 col-lg-4 project-item" data-cat="social">
+          <div class="card-custom h-100">
+            <div class="card-img-wrap">
+              <img src="https://images.pexels.com/photos/34984576/pexels-photo-34984576.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=840&w=1200" alt="Apoio Idosos" />
+            </div>
+            <div class="p-4">
+              <span class="card-badge">Apoio Social</span>
+              <span class="project-status ativo ms-2">Ativo</span>
+              <h5 class="fw-bold mt-2" style="color:var(--azul-primario);">Sorrir na Terceira Idade</h5>
+              <p class="text-muted small mb-3">Apoio a idosos carenciados com visitas domiciliárias, acompanhamento psicossocial e integração social.</p>
+              <div class="project-detail-row"><i class="bi bi-geo-alt"></i><span>Luanda</span></div>
+              <div class="project-detail-row"><i class="bi bi-people"></i><span>280 idosos</span></div>
+              <div class="project-detail-row"><i class="bi bi-calendar3"></i><span>Jan 2025 – Contínuo</span></div>
+              <div class="project-detail-row"><i class="bi bi-cash-stack"></i><span>Orçamento: 8M Kz</span></div>
+              <div class="mt-3">
+                <div class="d-flex justify-content-between mb-1" style="font-size:0.78rem;color:var(--cinza-medio);"><span>Progresso</span><span>35%</span></div>
+                <div class="progress-custom"><div class="progress-bar" style="width:35%"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Project 6 -->
+        <div class="col-md-6 col-lg-4 project-item" data-cat="educacao">
+          <div class="card-custom h-100">
+            <div class="card-img-wrap">
+              <img src="https://images.pexels.com/photos/34984576/pexels-photo-34984576.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=840&w=1200" alt="Formação Profissional" />
+            </div>
+            <div class="p-4">
+              <span class="card-badge verde">Educação</span>
+              <span class="project-status andamento ms-2">Em Execução</span>
+              <h5 class="fw-bold mt-2" style="color:var(--azul-primario);">Jovens Empreendedores</h5>
+              <p class="text-muted small mb-3">Formação profissional e empreendedorismo para jovens desempregados, criando novas oportunidades de trabalho.</p>
+              <div class="project-detail-row"><i class="bi bi-geo-alt"></i><span>Benguela & Namibe</span></div>
+              <div class="project-detail-row"><i class="bi bi-people"></i><span>320 jovens</span></div>
+              <div class="project-detail-row"><i class="bi bi-calendar3"></i><span>Set 2024 – Set 2025</span></div>
+              <div class="project-detail-row"><i class="bi bi-cash-stack"></i><span>Orçamento: 18M Kz</span></div>
+              <div class="mt-3">
+                <div class="d-flex justify-content-between mb-1" style="font-size:0.78rem;color:var(--cinza-medio);"><span>Progresso</span><span>60%</span></div>
+                <div class="progress-custom"><div class="progress-bar" style="width:60%"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /PROJECTS -->
+
+
+<!-- ═══════════════════════════════════════════
+     NEWS SECTION
+════════════════════════════════════════════ -->
+<div id="section-news" class="page-section">
+  <div class="page-hero">
+    <nav aria-label="breadcrumb" class="breadcrumb-custom mb-3">
+      <ol class="breadcrumb justify-content-center mb-0">
+        <li class="breadcrumb-item"><a href="#" onclick="showSection('home')">Início</a></li>
+        <li class="breadcrumb-item active">Notícias & Eventos</li>
+      </ol>
+    </nav>
+    <h1>Notícias & Eventos</h1>
+    <p>Mantenha-se informado sobre as atividades e iniciativas da ACSOL</p>
+  </div>
+
+  <section class="py-5">
+    <div class="container py-4">
+      <!-- Featured -->
+      <div class="row g-4 mb-5">
+        <div class="col-lg-7">
+          <div class="card-custom h-100">
+            <div class="card-img-wrap" style="height:340px;">
+              <img src="https://images.pexels.com/photos/34984576/pexels-photo-34984576.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=840&w=1200" alt="Destaque" />
+            </div>
+            <div class="p-4">
+              <span class="card-badge verde">Destaque</span>
+              <div class="news-card-date mt-2"><i class="bi bi-calendar3 me-1"></i>20 de Maio, 2025 · 4 min leitura</div>
+              <div class="news-card-title" style="font-size:1.35rem;">ACSOL celebra 15 anos de solidariedade com evento nacional</div>
+              <div class="news-card-excerpt">A Ação de Solidariedade em Angola comemora um marco histórico com um evento de gala em Luanda, reunindo parceiros, voluntários e beneficiários para celebrar 15 anos de impacto social positivo no país.</div>
+              <a href="#" class="btn-primary-custom mt-4 d-inline-block" style="font-size:0.85rem;">Ler Artigo Completo <i class="bi bi-arrow-right ms-1"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="d-flex flex-column gap-4 h-100">
+            <div class="card-custom p-3 d-flex gap-3">
+              <img src="https://images.pexels.com/photos/34984576/pexels-photo-34984576.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=840&w=1200" alt="Notícia" class="rounded-3" style="width:90px;height:90px;object-fit:cover;flex-shrink:0;" />
+              <div>
+                <span class="card-badge">Voluntariado</span>
+                <div class="news-card-date"><i class="bi bi-calendar3 me-1"></i>15 Mai 2025</div>
+                <div class="news-card-title" style="font-size:0.95rem;">ACSOL recruta 50 novos voluntários para 2025</div>
+              </div>
+            </div>
+            <div class="card-custom p-3 d-flex gap-3">
+              <img src="https://images.pexels.com/photos/34984576/pexels-photo-34984576.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=840&w=1200" alt="Notícia" class="rounded-3" style="width:90px;height:90px;object-fit:cover;flex-shrink:0;" />
+              <div>
+                <span class="card-badge">Projetos</span>
+                <div class="news-card-date"><i class="bi bi-calendar3 me-1"></i>2 Abr 2025</div>
+                <div class="news-card-title" style="font-size:0.95rem;">Distribuição de kits escolares beneficia 1.200 crianças</div>
+              </div>
+            </div>
+            <div class="card-custom p-3 d-flex gap-3">
+              <img src="https://images.pexels.com/photos/34984576/pexels-photo-34984576.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=840&w=1200" alt="Notícia" class="rounded-3" style="width:90px;height:90px;object-fit:cover;flex-shrink:0;" />
+              <div>
+                <span class="card-badge amarelo">Evento</span>
+                <div class="news-card-date"><i class="bi bi-calendar3 me-1"></i>18 Mar 2025</div>
+                <div class="news-card-title" style="font-size:0.95rem;">Gala de Solidariedade arrecada 3 milhões de Kz</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Events -->
+      <h3 class="mb-4" style="color:var(--azul-primario);font-family:'Playfair Display',serif;"><i class="bi bi-calendar-event me-2 text-primary"></i>Próximos Eventos</h3>
+      <div class="row g-4">
+        {% for event in event_items %}
+        <div class="col-md-4">
+          <div class="card-custom h-100 event-card">
+            {% if event.imagem %}
+              <div class="event-image"><img src="{{ event.imagem.url }}" alt="{{ event.titulo }}" /></div>
+            {% endif %}
+            <div class="p-4">
+            <div class="d-flex gap-3 align-items-center mb-3">
+              <div style="background:var(--azul-primario);color:#fff;text-align:center;border-radius:12px;padding:12px 18px;flex-shrink:0;">
+                <div style="font-size:1.8rem;font-weight:700;line-height:1;font-family:'Playfair Display',serif;">{{ event.data_publicacao|date:"d"|default:"--" }}</div>
+                <div style="font-size:0.72rem;letter-spacing:0;text-transform:uppercase;color:rgba(255,255,255,0.7);">{{ event.data_publicacao|date:"M Y"|default:"Data" }}</div>
+              </div>
+              <div>
+                <span class="card-badge verde">{{ event.categoria.nome|default:"Evento" }}</span>
+                <h6 class="fw-bold mt-1" style="color:var(--azul-primario);">{{ event.titulo }}</h6>
+                {% if event.conteudo %}<div class="text-muted small"><i class="bi bi-info-circle me-1"></i>{{ event.conteudo|truncatewords:10 }}</div>{% endif %}
+              </div>
+            </div>
+            <p class="text-muted small">{{ event.resumo|truncatewords:24 }}</p>
+            <a href="#" onclick="showSection('volunteer')" class="btn-outline-custom d-inline-block" style="font-size:0.8rem;padding:8px 18px;">Participar</a>
+            </div>
+          </div>
+        </div>
+        {% empty %}
+        <div class="col-md-4">
+          <div class="card-custom h-100 p-4">
+            <div class="d-flex gap-3 align-items-center mb-3">
+              <div style="background:var(--dourado);color:#fff;text-align:center;border-radius:12px;padding:12px 18px;flex-shrink:0;">
+                <div style="font-size:1.8rem;font-weight:700;line-height:1;font-family:'Playfair Display',serif;">28</div>
+                <div style="font-size:0.72rem;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.7);">Jun 2025</div>
+              </div>
+              <div>
+                <span class="card-badge amarelo">Campanha</span>
+                <h6 class="fw-bold mt-1" style="color:var(--azul-primario);">Dia da Solidariedade</h6>
+                <div class="text-muted small"><i class="bi bi-geo-alt me-1"></i>Bairro Hoji ya Henda, Luanda</div>
+              </div>
+            </div>
+            <p class="text-muted small">Ação de solidariedade com distribuição de alimentos, roupa e material escolar às famílias mais carenciadas.</p>
+            <a href="#" class="btn-outline-custom d-inline-block" style="font-size:0.8rem;padding:8px 18px;">Participar</a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+</div><!-- /NEWS -->
+
+
+<!-- ═══════════════════════════════════════════
+     GALLERY SECTION
+════════════════════════════════════════════ -->
+<div id="section-gallery" class="page-section">
+  <div class="page-hero">
+    <nav aria-label="breadcrumb" class="breadcrumb-custom mb-3">
+      <ol class="breadcrumb justify-content-center mb-0">
+        <li class="breadcrumb-item"><a href="#" onclick="showSection('home')">Início</a></li>
+        <li class="breadcrumb-item active">Galeria</li>
+      </ol>
+    </nav>
+    <h1>Galeria de Fotos</h1>
+    <p>Fotos das atividades e projetos da ACSOL em Angola</p>
+  </div>
+
+  <section class="py-5">
+    <div class="container py-4">
+      <div class="filter-tabs mb-4">
+        <button class="filter-tab active" onclick="filterGalleryPhotos('todos', this)">Todas</button>
+        <button class="filter-tab" onclick="filterGalleryPhotos('projetos', this)">Projetos</button>
+        <button class="filter-tab" onclick="filterGalleryPhotos('eventos', this)">Eventos</button>
+        <button class="filter-tab" onclick="filterGalleryPhotos('voluntarios', this)">Voluntários</button>
+        <button class="filter-tab" onclick="filterGalleryPhotos('comunidades', this)">Comunidades</button>
+      </div>
+      <div class="gallery-grid">
+        {% for item in gallery_photos %}
+          {% if item.tipo == "imagem" and item.imagem %}
+            <div class="gallery-item gallery-photo-item" data-gallery-cat="{{ item.categoria }}" onclick="openLightbox('{{ item.imagem.url }}')">
+              <img src="{{ item.imagem.url }}" alt="{{ item.titulo }}" />
+              <div class="gallery-overlay"><i class="bi bi-zoom-in"></i></div>
+            </div>
+          {% endif %}
+        {% empty %}
+          <div class="gallery-empty">
+            <i class="bi bi-images"></i>
+            <strong>Nenhuma foto publicada.</strong>
+            <span>Adicione fotos reais no painel administrativo em Galeria.</span>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+</div><!-- /GALLERY -->
+
+<!-- ═══════════════════════════════════════════
+     VIDEOS SECTION
+════════════════════════════════════════════ -->
+<div id="section-videos" class="page-section">
+  <div class="page-hero">
+    <nav aria-label="breadcrumb" class="breadcrumb-custom mb-3">
+      <ol class="breadcrumb justify-content-center mb-0">
+        <li class="breadcrumb-item"><a href="#" onclick="showSection('home')">Início</a></li>
+        <li class="breadcrumb-item active">Vídeos</li>
+      </ol>
+    </nav>
+    <h1>Vídeos</h1>
+    <p>Registos em vídeo das ações, eventos e campanhas da ACSOL</p>
+  </div>
+
+  <section class="py-5">
+    <div class="container py-4">
+        <div class="video-grid">
+        {% for item in gallery_videos %}
+          {% if item.tipo == "youtube" and item.youtube_embed_url %}
+            <div class="gallery-item gallery-media-item">
+              <iframe class="gallery-embed" src="{{ item.youtube_embed_url }}" title="{{ item.titulo }}" allowfullscreen loading="lazy"></iframe>
+              <div class="gallery-caption"><i class="bi bi-youtube me-1"></i>{{ item.titulo }}</div>
+            </div>
+          {% elif item.tipo == "video" and item.video %}
+            <div class="gallery-item gallery-media-item">
+              <video class="gallery-video" controls preload="metadata">
+                <source src="{{ item.video.url }}" />
+                O seu navegador nao suporta video.
+              </video>
+              <div class="gallery-caption"><i class="bi bi-play-circle me-1"></i>{{ item.titulo }}</div>
+            </div>
+          {% endif %}
+        {% empty %}
+          <div class="gallery-empty">
+            <i class="bi bi-camera-video"></i>
+            <strong>Nenhum vídeo publicado.</strong>
+            <span>Adicione ficheiros de vídeo ou links do YouTube no painel administrativo.</span>
+          </div>
+        {% endfor %}
+        </div>
+    </div>
+  </section>
+</div><!-- /VIDEOS -->
+
+
+<!-- ═══════════════════════════════════════════
+     DIVISIONS SECTION
+════════════════════════════════════════════ -->
+<div id="section-divisions" class="page-section">
+  <div class="page-hero">
+    <nav aria-label="breadcrumb" class="breadcrumb-custom mb-3">
+      <ol class="breadcrumb justify-content-center mb-0">
+        <li class="breadcrumb-item"><a href="#" onclick="showSection('home')">Início</a></li>
+        <li class="breadcrumb-item active">Divisões</li>
+      </ol>
+    </nav>
+    <h1>Divisões Provinciais</h1>
+    <p>Pontos de atuação da ACSOL em Angola, com contactos e localização aproximada</p>
+  </div>
+
+  <section class="py-5">
+    <div class="container py-4">
+      <div class="row g-4 align-items-stretch">
+        <div class="col-lg-5">
+          <div class="division-map-panel h-100">
+            <span class="section-label"><i class="bi bi-map me-1"></i>Presença territorial</span>
+            <h2 class="mt-3">ACSOL nas províncias</h2>
+            <p>O administrador e os gerentes podem atualizar províncias, contactos, endereço e coordenadas no painel.</p>
+            <div class="province-cloud">
+              {% for office in province_offices %}
+                <a href="{{ office.maps_url }}" target="_blank" rel="noopener">{{ office.provincia }}</a>
+              {% empty %}
+                <span>Luanda</span><span>Benguela</span><span>Huambo</span>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <div class="row g-3">
+            {% for office in province_offices %}
+              <div class="col-md-6">
+                <div class="division-card">
+                  <div class="division-icon"><i class="bi bi-geo-alt-fill"></i></div>
+                  <div>
+                    <h3>{{ office.provincia }}</h3>
+                    {% if office.municipio %}<strong>{{ office.municipio }}</strong>{% endif %}
+                    {% if office.descricao %}<p>{{ office.descricao|truncatewords:22 }}</p>{% endif %}
+                    {% if office.endereco %}<span><i class="bi bi-pin-map"></i>{{ office.endereco }}</span>{% endif %}
+                    {% if office.telefone %}<span><i class="bi bi-telephone"></i>{{ office.telefone }}</span>{% endif %}
+                    {% if office.email %}<span><i class="bi bi-envelope"></i>{{ office.email }}</span>{% endif %}
+                    <a class="division-map-link" href="{{ office.maps_url }}" target="_blank" rel="noopener">Ver no mapa <i class="bi bi-box-arrow-up-right"></i></a>
+                  </div>
+                </div>
+              </div>
+            {% empty %}
+              <div class="col-12">
+                <div class="gallery-empty">
+                  <i class="bi bi-geo-alt"></i>
+                  <strong>Nenhuma divisão cadastrada.</strong>
+                  <span>Adicione as províncias no painel administrativo.</span>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /DIVISIONS -->
+
+
+<!-- ═══════════════════════════════════════════
+     VOLUNTEER SECTION
+════════════════════════════════════════════ -->
+<div id="section-volunteer" class="page-section">
+  <div class="page-hero">
+    <nav aria-label="breadcrumb" class="breadcrumb-custom mb-3">
+      <ol class="breadcrumb justify-content-center mb-0">
+        <li class="breadcrumb-item"><a href="#" onclick="showSection('home')">Início</a></li>
+        <li class="breadcrumb-item active">Voluntariado</li>
+      </ol>
+    </nav>
+    <h1>Seja Voluntário</h1>
+    <p>Junte-se à nossa família de voluntários e faça a diferença em Angola</p>
+  </div>
+
+  <section class="py-5">
+    <div class="container py-4">
+      <div class="row g-5">
+        <div class="col-lg-5">
+          <span class="section-label">Voluntariado ACSOL</span>
+          <h2 class="section-title">{{ site_config.titulo_voluntariado|default:"Porque Ser Voluntário?" }}</h2>
+          <div class="section-divider left"></div>
+          <p class="text-muted mt-4 mb-4" style="line-height:1.8;">
+            {{ site_config.texto_voluntariado|default:"O voluntariado na ACSOL é uma experiência transformadora. Contribui com as suas competências, tempo e coração para construir um Angola melhor para todos." }}
+          </p>
+          <div class="d-flex flex-column gap-3">
+            <div class="value-card"><i class="bi bi-people-fill value-icon"></i><div><strong style="color:var(--azul-primario);">Impacto Real</strong><p class="text-muted small mb-0 mt-1">O seu trabalho chega diretamente às comunidades que mais precisam.</p></div></div>
+            <div class="value-card"><i class="bi bi-award value-icon"></i><div><strong style="color:var(--azul-primario);">Desenvolvimento Pessoal</strong><p class="text-muted small mb-0 mt-1">Adquira novas competências e enriqueça o seu perfil profissional.</p></div></div>
+            <div class="value-card"><i class="bi bi-star value-icon"></i><div><strong style="color:var(--azul-primario);">Reconhecimento</strong><p class="text-muted small mb-0 mt-1">Certificado de voluntariado e reconhecimento público das suas contribuições.</p></div></div>
+            <div class="value-card"><i class="bi bi-heart value-icon"></i><div><strong style="color:var(--azul-primario);">Comunidade</strong><p class="text-muted small mb-0 mt-1">Faça parte de uma rede solidária de mais de 200 voluntários em Angola.</p></div></div>
+          </div>
+          <div class="mt-4 p-4 rounded-3" style="background:var(--azul-muito-claro);border-left:4px solid var(--azul-secundario);">
+            <strong style="color:var(--azul-primario);">Áreas de Voluntariado:</strong>
+            <div class="d-flex flex-wrap gap-2 mt-2">
+              <span class="badge rounded-pill" style="background:var(--azul-secundario);padding:6px 14px;">Educação</span>
+              <span class="badge rounded-pill" style="background:var(--azul-secundario);padding:6px 14px;">Saúde</span>
+              <span class="badge rounded-pill" style="background:var(--azul-secundario);padding:6px 14px;">Comunicação</span>
+              <span class="badge rounded-pill" style="background:var(--azul-secundario);padding:6px 14px;">TI & Tecnologia</span>
+              <span class="badge rounded-pill" style="background:var(--azul-secundario);padding:6px 14px;">Logística</span>
+              <span class="badge rounded-pill" style="background:var(--azul-secundario);padding:6px 14px;">Jurídico</span>
+              <span class="badge rounded-pill" style="background:var(--azul-secundario);padding:6px 14px;">Finanças</span>
+              <span class="badge rounded-pill" style="background:var(--azul-secundario);padding:6px 14px;">Campo</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <div class="card-custom p-4 p-md-5">
+            <h4 class="mb-4" style="color:var(--azul-primario);font-family:'Playfair Display',serif;">
+              <i class="bi bi-person-plus me-2 text-primary"></i>Formulário de Candidatura
+            </h4>
+            <form class="form-custom ajax-form" id="volunteer-form" action="{% url 'core:volunteer_application' %}" method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label-custom">Nome Completo *</label>
+                  <input type="text" name="nome" class="form-control" placeholder="O seu nome completo" required />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-custom">Telefone *</label>
+                  <input type="tel" name="telefone" class="form-control" placeholder="+244 9XX XXX XXX" required />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-custom">Email *</label>
+                  <input type="email" name="email" class="form-control" placeholder="email@exemplo.com" required />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-custom">Data de Nascimento</label>
+                  <input type="date" class="form-control" />
+                </div>
+                <div class="col-12">
+                  <label class="form-label-custom">Morada</label>
+                  <input type="text" name="morada" class="form-control" placeholder="Rua, Bairro, Município, Província" />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-custom">Profissão *</label>
+                  <input type="text" name="profissao" class="form-control" placeholder="Ex: Enfermeiro, Professor..." required />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-custom">Habilitações Literárias</label>
+                  <select class="form-select">
+                    <option value="">Seleccione...</option>
+                    <option>Ensino Primário</option>
+                    <option>Ensino Médio</option>
+                    <option>Licenciatura</option>
+                    <option>Mestrado</option>
+                    <option>Doutoramento</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label class="form-label-custom">Área de Interesse *</label>
+                  <select name="area_interesse" class="form-select" required>
+                    <option value="">Seleccione uma área...</option>
+                    <option>Educação e Formação</option>
+                    <option>Saúde e Bem-Estar</option>
+                    <option>Comunicação e Marketing</option>
+                    <option>Tecnologia e Informática</option>
+                    <option>Logística e Apoio Operacional</option>
+                    <option>Jurídico e Administrativo</option>
+                    <option>Finanças e Contabilidade</option>
+                    <option>Trabalho de Campo</option>
+                    <option>Outra Área</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-custom">Disponibilidade</label>
+                  <select class="form-select">
+                    <option>Fins de semana</option>
+                    <option>Dias úteis</option>
+                    <option>Tempo parcial</option>
+                    <option>Tempo integral</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-custom">Tem experiência prévia?</label>
+                  <select class="form-select">
+                    <option>Sim, tenho experiência</option>
+                    <option>Não, é a primeira vez</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label class="form-label-custom">Mensagem / Motivação</label>
+                  <textarea name="mensagem" class="form-control" rows="4" placeholder="Conte-nos porque quer ser voluntário da ACSOL..."></textarea>
+                </div>
+                <div class="col-12">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="termosVoluntario" required />
+                    <label class="form-check-label small text-muted" for="termosVoluntario">
+                      Declaro que li e aceito os <a href="#" style="color:var(--azul-secundario);">Termos e Condições</a> da ACSOL e autorizo o tratamento dos meus dados pessoais.
+                    </label>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn-primary-custom w-100 py-3">
+                    <i class="bi bi-send me-2"></i>Enviar Candidatura
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /VOLUNTEER -->
+
+
+<!-- ═══════════════════════════════════════════
+     DONATIONS SECTION
+════════════════════════════════════════════ -->
+<div id="section-donations" class="page-section">
+  <div class="page-hero">
+    <nav aria-label="breadcrumb" class="breadcrumb-custom mb-3">
+      <ol class="breadcrumb justify-content-center mb-0">
+        <li class="breadcrumb-item"><a href="#" onclick="showSection('home')">Início</a></li>
+        <li class="breadcrumb-item active">Como Ajudar</li>
+      </ol>
+    </nav>
+    <h1>Como Ajudar</h1>
+    <p>A sua contribuição faz toda a diferença nas vidas das famílias angolanas</p>
+  </div>
+
+  <section class="py-5">
+    <div class="container py-4">
+      <div class="row g-5">
+        <div class="col-lg-6">
+          <span class="section-label">Contribua Connosco</span>
+          <h2 class="section-title">Cada Kwanza Conta</h2>
+          <div class="section-divider left"></div>
+          <p class="text-muted mt-4 mb-4" style="line-height:1.8;">
+            As suas doações permitem-nos continuar a desenvolver projetos vitais de educação, saúde, saneamento e segurança alimentar para as comunidades mais vulneráveis de Angola.
+          </p>
+
+          <!-- IMPACT AMOUNTS -->
+          <h5 class="fw-bold mb-3" style="color:var(--azul-primario);">O Impacto da Sua Doação</h5>
+          <div class="row g-3 mb-4">
+            <div class="col-6">
+              <div class="p-3 rounded-3 text-center" style="background:var(--azul-muito-claro);border:1.5px solid #dbeafe;">
+                <div style="font-size:1.5rem;font-weight:700;color:var(--azul-primario);">5.000 Kz</div>
+                <div class="text-muted small mt-1">Fornece kit escolar a 1 criança</div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="p-3 rounded-3 text-center" style="background:#d1fae5;border:1.5px solid #a7f3d0;">
+                <div style="font-size:1.5rem;font-weight:700;color:#065f46;">15.000 Kz</div>
+                <div class="text-muted small mt-1">Cabaz alimentar para 1 família</div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="p-3 rounded-3 text-center" style="background:#fef3c7;border:1.5px solid #fde68a;">
+                <div style="font-size:1.5rem;font-weight:700;color:#92400e;">50.000 Kz</div>
+                <div class="text-muted small mt-1">Consulta médica para 10 pessoas</div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="p-3 rounded-3 text-center" style="background:#fee2e2;border:1.5px solid #fecaca;">
+                <div style="font-size:1.5rem;font-weight:700;color:#991b1b;">200.000 Kz</div>
+                <div class="text-muted small mt-1">Poço de água para 1 aldeia</div>
+              </div>
+            </div>
+          </div>          <div class="donation-box">
+            <h5 style="color:#fff;font-family:'Playfair Display',serif;margin-bottom:1.2rem;"><i class="bi bi-shield-lock me-2" style="color:var(--dourado);"></i>Doacao Segura</h5>
+            <p style="color:rgba(255,255,255,0.82);line-height:1.8;margin-bottom:1rem;">
+              Os dados bancarios da associacao nao ficam expostos na pagina principal. Clique em "Quero Doar", preencha o formulario e receba instrucoes de pagamento adequadas ao tipo de doacao.
+            </p>
+            <div class="d-flex flex-wrap gap-2">
+              <span class="badge rounded-pill bg-light text-primary px-3 py-2">Nacional</span>
+              <span class="badge rounded-pill bg-light text-primary px-3 py-2">Internacional</span>
+              <span class="badge rounded-pill bg-light text-primary px-3 py-2">Multicaixa Express</span>
+              <span class="badge rounded-pill bg-light text-primary px-3 py-2">Gateway online</span>
+              <span class="badge rounded-pill bg-light text-primary px-3 py-2">Doação em espécie</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <h4 class="mb-4" style="color:var(--azul-primario);font-family:'Playfair Display',serif;">Formas Disponiveis de Doacao</h4>
+          <div class="d-flex flex-column gap-3 mb-5">
+            <div class="donation-method">
+              <div class="donation-method-icon"><i class="bi bi-phone"></i></div>
+              <div>
+                <div class="fw-bold" style="color:var(--azul-primario);">Multicaixa Express</div>
+                <div class="text-muted small">Receba instrucoes seguras apos preencher o formulario</div>
+              </div>
+            </div>
+            <div class="donation-method">
+              <div class="donation-method-icon"><i class="bi bi-credit-card"></i></div>
+              <div>
+                <div class="fw-bold" style="color:var(--azul-primario);">Transferência Bancária Internacional</div>
+                <div class="text-muted small">Receba instrucoes internacionais apos preencher o formulario</div>
+              </div>
+            </div>
+            <div class="donation-method">
+              <div class="donation-method-icon"><i class="bi bi-envelope-check"></i></div>
+              <div>
+                <div class="fw-bold" style="color:var(--azul-primario);">Cheque ou Ordem de Pagamento</div>
+                <div class="text-muted small">Instrucoes enviadas apos registo da intencao</div>
+              </div>
+            </div>
+            <div class="donation-method">
+              <div class="donation-method-icon"><i class="bi bi-building-check"></i></div>
+              <div>
+                <div class="fw-bold" style="color:var(--azul-primario);">Doação em Espécie</div>
+                <div class="text-muted small">Alimentos, roupas, material escolar ou equipamentos médicos</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- DONATION FORM -->
+          <div class="card-custom p-4">
+            <h5 class="mb-3" style="color:var(--azul-primario);font-family:'Playfair Display',serif;"><i class="bi bi-heart-fill text-danger me-2"></i>Quero Doar</h5>
+            {% if donation_settings and donation_settings.doacoes_monetarias_ativas %}
+            <form class="form-custom ajax-form donation-form" action="{% url 'core:donation_interest' %}" method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label-custom">Nome</label>
+                  <input type="text" name="nome" class="form-control" placeholder="O seu nome" required />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-custom">Email</label>
+                  <input type="email" name="email" class="form-control" placeholder="email@exemplo.com" required />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-custom">Telefone</label>
+                  <input type="tel" name="telefone" class="form-control" placeholder="+244 9XX XXX XXX" />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-custom">Tipo de Doacao</label>
+                  <select name="tipo" class="form-select" data-instructions-url="{% url 'core:donation_instructions' %}">
+                    <option value="nacional">Nacional</option>
+                    <option value="internacional">Internacional</option>
+                    <option value="multicaixa">Multicaixa Express</option>
+                    <option value="gateway">Pagamento online</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label class="form-label-custom">Valor Pretendido (Kz)</label>
+                  <div class="d-flex flex-wrap gap-2 mb-2">
+                    <button type="button" class="filter-tab" onclick="setAmount(this,'5000')">5.000</button>
+                    <button type="button" class="filter-tab" onclick="setAmount(this,'15000')">15.000</button>
+                    <button type="button" class="filter-tab" onclick="setAmount(this,'50000')">50.000</button>
+                    <button type="button" class="filter-tab" onclick="setAmount(this,'100000')">100.000</button>
+                  </div>
+                  <input type="number" name="valor" class="form-control" id="donation-amount" placeholder="Ou insira o valor desejado..." />
+                </div>
+                <div class="col-12">
+                  <label class="form-label-custom">Comprovativo (opcional)</label>
+                  <input type="file" name="comprovativo" class="form-control" accept=".pdf,.jpg,.jpeg,.png,.webp" />
+                  <div class="form-text">Pode enviar depois, quando concluir o pagamento.</div>
+                </div>
+                <div class="col-12">
+                  <label class="form-label-custom">Mensagem (opcional)</label>
+                  <textarea name="observacao" class="form-control" rows="3" placeholder="Deixe uma mensagem de apoio..."></textarea>
+                </div>
+                <div class="col-12">
+                  <div class="donation-instructions" id="donation-instructions" hidden></div>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn-primary-custom w-100 py-3">
+                    <i class="bi bi-heart me-2"></i>Quero Doar
+                  </button>
+                </div>
+              </div>
+            </form>
+            {% else %}
+            <div class="donation-unavailable" role="status" aria-live="polite">
+              <div class="donation-unavailable-icon"><i class="bi bi-lock-fill"></i></div>
+              <div>
+                <h6>Quero Doar indisponivel no momento</h6>
+                <p>
+                  {% if donation_settings and donation_settings.mensagem_doacoes_indisponiveis %}
+                    {{ donation_settings.mensagem_doacoes_indisponiveis }}
+                  {% else %}
+                    A opcao Quero Doar esta temporariamente indisponivel enquanto a ACSOL confirma os dados bancarios oficiais.
+                  {% endif %}
+                </p>
+                <a href="#contact" class="btn-outline-custom btn-sm">
+                  <i class="bi bi-envelope me-2"></i>Contactar ACSOL
+                </a>
+              </div>
+            </div>
+            {% endif %}
+          </div>
+
+          <div class="mt-3 p-3 rounded-3" style="background:var(--cinza-claro);font-size:0.82rem;color:var(--cinza-medio);">
+            <i class="bi bi-shield-lock me-2 text-success"></i>
+            Todas as doações são processadas de forma segura e transparente. Emitimos recibo para todas as contribuições. A ACSOL é registada e fiscalizada pelo MINJUSDH.
+          </div>
+
+          <div class="card-custom p-4 mt-4">
+            <h5 class="mb-3" style="color:var(--azul-primario);font-family:'Playfair Display',serif;"><i class="bi bi-box-seam text-success me-2"></i>Doação em Espécie</h5>
+            <form class="form-custom ajax-form" action="{% url 'core:in_kind_donation' %}" method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label-custom">Nome</label>
+                  <input type="text" name="nome" class="form-control" placeholder="O seu nome" required />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-custom">Email</label>
+                  <input type="email" name="email" class="form-control" placeholder="email@exemplo.com" required />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-custom">Telefone</label>
+                  <input type="tel" name="telefone" class="form-control" placeholder="+244 9XX XXX XXX" required />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-custom">Tipo de item</label>
+                  <input type="text" name="tipo_item" class="form-control" placeholder="Alimentos, roupa, material escolar..." required />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-custom">Quantidade</label>
+                  <input type="text" name="quantidade" class="form-control" placeholder="Ex: 3 caixas, 20 kg, 10 unidades" required />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-custom">Estado do item</label>
+                  <select name="estado_item" class="form-select" required>
+                    <option value="novo">Novo</option>
+                    <option value="usado_bom">Usado em bom estado</option>
+                    <option value="usado_regular">Usado em estado regular</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label class="form-label-custom">Descrição</label>
+                  <textarea name="descricao" class="form-control" rows="3" placeholder="Descreva os itens que pretende doar..." required></textarea>
+                </div>
+                <div class="col-12">
+                  <label class="form-label-custom">Localização para entrega</label>
+                  <input type="text" name="localizacao_entrega" class="form-control" placeholder="Província, município, bairro ou ponto de referência" required />
+                </div>
+                <div class="col-12">
+                  <label class="form-label-custom">Foto do item (opcional)</label>
+                  <input type="file" name="foto" class="form-control" accept=".jpg,.jpeg,.png,.webp" />
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn-primary-custom w-100 py-3">
+                    <i class="bi bi-box-seam me-2"></i>Registar Doação em Espécie
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /DONATIONS -->
+
+
+<!-- ═══════════════════════════════════════════
+     PARTNERS SECTION
+════════════════════════════════════════════ -->
+<div id="section-partners" class="page-section">
+  <div class="page-hero">
+    <nav aria-label="breadcrumb" class="breadcrumb-custom mb-3">
+      <ol class="breadcrumb justify-content-center mb-0">
+        <li class="breadcrumb-item"><a href="#" onclick="showSection('home')">Início</a></li>
+        <li class="breadcrumb-item active">Parceiros</li>
+      </ol>
+    </nav>
+    <h1>{{ site_config.titulo_parceiros|default:"Os Nossos Parceiros" }}</h1>
+    <p>Entidades que acreditam e apoiam a missão da ACSOL</p>
+  </div>
+
+  <section class="py-5">
+    <div class="container py-4">
+      <div class="text-center mb-5">
+        <p class="text-muted" style="max-width:580px;margin:0 auto;">{{ site_config.texto_parceiros|default:"A ACSOL trabalha em parceria com organizações governamentais, internacionais e do setor privado para maximizar o impacto das suas intervenções." }}</p>
+      </div>
+
+      {% if partners %}
+      <h4 class="mb-4" style="color:var(--azul-primario);font-family:'Playfair Display',serif;"><i class="bi bi-handshake me-2 text-primary"></i>Parceiros registados</h4>
+      <div class="row g-4 mb-5">
+        {% for partner in partners %}
+        <div class="col-md-4 col-sm-6">
+          <div class="partner-card">
+            <div class="partner-logo">
+              {% if partner.logo %}
+                <img src="{{ partner.logo.url }}" alt="{{ partner.nome }}" />
+              {% else %}
+                <i class="bi bi-building"></i>
+              {% endif %}
+            </div>
+            <h6 class="fw-bold" style="color:var(--azul-primario);">{{ partner.nome }}</h6>
+            <p class="text-muted small">Informação editável no painel administrativo em Parceiros.</p>
+            {% if partner.website %}
+              <a href="{{ partner.website }}" target="_blank" class="btn-outline-custom mt-2 d-inline-block" style="font-size:0.78rem;padding:6px 16px;">Visitar <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+            {% endif %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      {% else %}
+
+      <h4 class="mb-4" style="color:var(--azul-primario);font-family:'Playfair Display',serif;"><i class="bi bi-building me-2 text-primary"></i>Parceiros Governamentais</h4>
+      <div class="row g-4 mb-5">
+        <div class="col-md-4 col-sm-6">
+          <div class="partner-card">
+            <div class="partner-logo"><i class="bi bi-building"></i></div>
+            <h6 class="fw-bold" style="color:var(--azul-primario);">Ministério da Ação Social</h6>
+            <p class="text-muted small">Parceiro estratégico para programas de proteção social e inclusão de famílias vulneráveis.</p>
+            <a href="#" class="btn-outline-custom mt-2 d-inline-block" style="font-size:0.78rem;padding:6px 16px;">Visitar <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="partner-card">
+            <div class="partner-logo"><i class="bi bi-shield-check"></i></div>
+            <h6 class="fw-bold" style="color:var(--azul-primario);">MINJUSDH</h6>
+            <p class="text-muted small">Ministério da Justiça e Direitos Humanos — entidade reguladora e supervisora das atividades da ACSOL.</p>
+            <a href="#" class="btn-outline-custom mt-2 d-inline-block" style="font-size:0.78rem;padding:6px 16px;">Visitar <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="partner-card">
+            <div class="partner-logo"><i class="bi bi-mortarboard"></i></div>
+            <h6 class="fw-bold" style="color:var(--azul-primario);">Min. da Educação</h6>
+            <p class="text-muted small">Parceria para programas de apoio escolar, formação de professores e literacia em comunidades rurais.</p>
+            <a href="#" class="btn-outline-custom mt-2 d-inline-block" style="font-size:0.78rem;padding:6px 16px;">Visitar <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <h4 class="mb-4" style="color:var(--azul-primario);font-family:'Playfair Display',serif;"><i class="bi bi-globe me-2 text-primary"></i>Parceiros Internacionais</h4>
+      <div class="row g-4 mb-5">
+        <div class="col-md-4 col-sm-6">
+          <div class="partner-card">
+            <div class="partner-logo" style="background:#e0f2fe;"><i class="bi bi-globe" style="color:#0369a1;"></i></div>
+            <h6 class="fw-bold" style="color:var(--azul-primario);">UNICEF Angola</h6>
+            <p class="text-muted small">Cooperação para proteção dos direitos da criança, nutrição, educação e saúde infantil em Angola.</p>
+            <a href="https://www.unicef.org/angola" target="_blank" class="btn-outline-custom mt-2 d-inline-block" style="font-size:0.78rem;padding:6px 16px;">Visitar <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="partner-card">
+            <div class="partner-logo" style="background:#d1fae5;"><i class="bi bi-heart-pulse" style="color:#065f46;"></i></div>
+            <h6 class="fw-bold" style="color:var(--azul-primario);">OMS / WHO Angola</h6>
+            <p class="text-muted small">Colaboração em programas de saúde pública, vacinação e prevenção de doenças.</p>
+            <a href="https://www.afro.who.int" target="_blank" class="btn-outline-custom mt-2 d-inline-block" style="font-size:0.78rem;padding:6px 16px;">Visitar <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="partner-card">
+            <div class="partner-logo" style="background:#fef3c7;"><i class="bi bi-award" style="color:#92400e;"></i></div>
+            <h6 class="fw-bold" style="color:var(--azul-primario);">Cruz Vermelha Angolana</h6>
+            <p class="text-muted small">Parceria em situações de emergência humanitária, primeiros socorros e ações de socorro.</p>
+            <a href="#" class="btn-outline-custom mt-2 d-inline-block" style="font-size:0.78rem;padding:6px 16px;">Visitar <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <h4 class="mb-4" style="color:var(--azul-primario);font-family:'Playfair Display',serif;"><i class="bi bi-briefcase me-2 text-primary"></i>Parceiros Privados</h4>
+      <div class="row g-4">
+        <div class="col-md-4 col-sm-6">
+          <div class="partner-card">
+            <div class="partner-logo" style="background:#ede9fe;"><i class="bi bi-bank" style="color:#5b21b6;"></i></div>
+            <h6 class="fw-bold" style="color:var(--azul-primario);">BAI – Banco Angolano de Investimentos</h6>
+            <p class="text-muted small">Apoio financeiro e parceiro bancário oficial da ACSOL para gestão de fundos e doações.</p>
+            <a href="#" class="btn-outline-custom mt-2 d-inline-block" style="font-size:0.78rem;padding:6px 16px;">Visitar <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="partner-card">
+            <div class="partner-logo" style="background:#e0e7ff;"><i class="bi bi-pc-display" style="color:#3730a3;"></i></div>
+            <h6 class="fw-bold" style="color:var(--azul-primario);">Universidade Agostinho Neto (UAN)</h6>
+            <p class="text-muted small">Parceria académica para voluntariado universitário, estágios e investigação social aplicada.</p>
+            <a href="#" class="btn-outline-custom mt-2 d-inline-block" style="font-size:0.78rem;padding:6px 16px;">Visitar <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="partner-card">
+            <div class="partner-logo" style="background:#fce7f3;"><i class="bi bi-broadcast" style="color:#9d174d;"></i></div>
+            <h6 class="fw-bold" style="color:var(--azul-primario);">TPA – Televisão Pública de Angola</h6>
+            <p class="text-muted small">Cobertura mediática e apoio à comunicação das iniciativas e campanhas da ACSOL.</p>
+            <a href="#" class="btn-outline-custom mt-2 d-inline-block" style="font-size:0.78rem;padding:6px 16px;">Visitar <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+          </div>
+        </div>
+      </div>
+
+      {% endif %}
+
+      <div class="mt-5 p-4 rounded-4 text-center" style="background:var(--azul-muito-claro);border:2px dashed #bfdbfe;">
+        <i class="bi bi-handshake" style="font-size:2.5rem;color:var(--azul-secundario);"></i>
+        <h5 class="mt-3 mb-2" style="color:var(--azul-primario);">Seja Parceiro da ACSOL</h5>
+        <p class="text-muted mb-3">A sua organização pode fazer parte desta rede de solidariedade. Juntos chegamos mais longe.</p>
+        <a href="#" class="btn-primary-custom" onclick="showSection('contact')">Contactar para Parceria</a>
+      </div>
+    </div>
+  </section>
+</div><!-- /PARTNERS -->
+
+
+<!-- ═══════════════════════════════════════════
+     FAQ SECTION
+════════════════════════════════════════════ -->
+<div id="section-faq" class="page-section">
+  <div class="page-hero">
+    <nav aria-label="breadcrumb" class="breadcrumb-custom mb-3">
+      <ol class="breadcrumb justify-content-center mb-0">
+        <li class="breadcrumb-item"><a href="#" onclick="showSection('home')">Início</a></li>
+        <li class="breadcrumb-item active">FAQ</li>
+      </ol>
+    </nav>
+    <h1>Perguntas Frequentes</h1>
+    <p>Encontre respostas às dúvidas mais comuns sobre a ACSOL</p>
+  </div>
+
+  <section class="py-5">
+    <div class="container py-4" style="max-width:840px;">
+
+      <h4 class="mb-3" style="color:var(--azul-primario);font-family:'Playfair Display',serif;"><i class="bi bi-info-circle me-2 text-primary"></i>Sobre a ACSOL</h4>
+      <div class="accordion faq-accordion mb-5" id="faq1">
+        <div class="accordion-item">
+          <h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#q1a">O que é a ACSOL?</button></h2>
+          <div id="q1a" class="accordion-collapse collapse show" data-bs-parent="#faq1">
+            <div class="accordion-body text-muted" style="font-size:0.92rem;">A ACSOL – Ação de Solidariedade em Angola é uma associação sem fins lucrativos, fundada em 2010, que tem como missão promover o desenvolvimento humano, social e comunitário em Angola. Trabalhamos em áreas como educação, saúde, saneamento, segurança alimentar e apoio social.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q1b">A ACSOL é uma organização legal?</button></h2>
+          <div id="q1b" class="accordion-collapse collapse" data-bs-parent="#faq1">
+            <div class="accordion-body text-muted" style="font-size:0.92rem;">Sim. A ACSOL está registada e reconhecida pelo Ministério da Justiça e Direitos Humanos (MINJUSDH) de Angola, com todos os documentos legais em vigor. Publicamos relatórios anuais de atividades e contas auditadas.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q1c">Em que províncias a ACSOL atua?</button></h2>
+          <div id="q1c" class="accordion-collapse collapse" data-bs-parent="#faq1">
+            <div class="accordion-body text-muted" style="font-size:0.92rem;">A ACSOL atua em 12 províncias de Angola, com sede em Luanda e delegações em Benguela, Huambo, Malanje, Bié, Cabinda, Kuanza Sul, Uíge, Namibe, Lunda Norte, Lunda Sul e Zaire.</div>
+          </div>
+        </div>
+      </div>
+
+      <h4 class="mb-3" style="color:var(--azul-primario);font-family:'Playfair Display',serif;"><i class="bi bi-folder me-2 text-primary"></i>Sobre os Projetos</h4>
+      <div class="accordion faq-accordion mb-5" id="faq2">
+        <div class="accordion-item">
+          <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2a">Como são escolhidos os projetos?</button></h2>
+          <div id="q2a" class="accordion-collapse collapse" data-bs-parent="#faq2">
+            <div class="accordion-body text-muted" style="font-size:0.92rem;">Os projetos são selecionados com base em diagnósticos de necessidade realizados nas comunidades, em parceria com líderes locais, autoridades municipais e organizações parceiras. Priorizamos as áreas com maior vulnerabilidade e impacto potencial.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2b">Posso propor um projeto para a minha comunidade?</button></h2>
+          <div id="q2b" class="accordion-collapse collapse" data-bs-parent="#faq2">
+            <div class="accordion-body text-muted" style="font-size:0.92rem;">Sim! Recebemos propostas de comunidades, organizações e indivíduos. Para submeter uma proposta, envie um email para projetos@acsol.ao com uma descrição da necessidade, localização e beneficiários estimados.</div>
+          </div>
+        </div>
+      </div>
+
+      <h4 class="mb-3" style="color:var(--azul-primario);font-family:'Playfair Display',serif;"><i class="bi bi-people me-2 text-primary"></i>Sobre o Voluntariado</h4>
+      <div class="accordion faq-accordion mb-5" id="faq3">
+        <div class="accordion-item">
+          <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q3a">Qualquer pessoa pode ser voluntária?</button></h2>
+          <div id="q3a" class="accordion-collapse collapse" data-bs-parent="#faq3">
+            <div class="accordion-body text-muted" style="font-size:0.92rem;">Sim, aceitamos voluntários de todas as idades (a partir dos 16 anos com autorização dos pais) e formações. O importante é a vontade de contribuir. Temos oportunidades tanto para quem quer trabalhar no campo como em funções administrativas ou técnicas.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q3b">O voluntariado é remunerado?</button></h2>
+          <div id="q3b" class="accordion-collapse collapse" data-bs-parent="#faq3">
+            <div class="accordion-body text-muted" style="font-size:0.92rem;">O voluntariado na ACSOL é uma atividade não remunerada. No entanto, garantimos formação, certificado de voluntariado, cobertura de despesas de deslocação em missões de campo e acesso a eventos exclusivos da organização.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q3c">Qual é a disponibilidade mínima exigida?</button></h2>
+          <div id="q3c" class="accordion-collapse collapse" data-bs-parent="#faq3">
+            <div class="accordion-body text-muted" style="font-size:0.92rem;">Não há uma disponibilidade mínima rígida. Temos voluntários que colaboram apenas nos fins de semana e outros a tempo parcial ou integral. O importante é o compromisso com as atividades acordadas.</div>
+          </div>
+        </div>
+      </div>
+
+      <h4 class="mb-3" style="color:var(--azul-primario);font-family:'Playfair Display',serif;"><i class="bi bi-heart me-2 text-primary"></i>Sobre as Doações</h4>
+      <div class="accordion faq-accordion mb-5" id="faq4">
+        <div class="accordion-item">
+          <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q4a">Como são utilizadas as doações?</button></h2>
+          <div id="q4a" class="accordion-collapse collapse" data-bs-parent="#faq4">
+            <div class="accordion-body text-muted" style="font-size:0.92rem;">As doações são aplicadas diretamente nos projetos: 75% vai para atividades de campo, 15% para custos operacionais e 10% para formação de voluntários. Publicamos relatórios financeiros anuais auditados disponíveis ao público.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q4b">Recebo recibo de doação?</button></h2>
+          <div id="q4b" class="accordion-collapse collapse" data-bs-parent="#faq4">
+            <div class="accordion-body text-muted" style="font-size:0.92rem;">Sim. Emitimos recibo para todas as doações, incluindo doações em espécie. Para receber o seu recibo, envie o comprovativo de transferência para doacoes@acsol.ao com o seu nome e contacto.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q4c">Posso fazer doações regulares/mensais?</button></h2>
+          <div id="q4c" class="accordion-collapse collapse" data-bs-parent="#faq4">
+            <div class="accordion-body text-muted" style="font-size:0.92rem;">Sim! As doações regulares são especialmente valiosas pois permitem planeamento a longo prazo. Contacte-nos em doacoes@acsol.ao para configurar uma doação mensal recorrente.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q4d">Aceitam doações do exterior de Angola?</button></h2>
+          <div id="q4d" class="accordion-collapse collapse" data-bs-parent="#faq4">
+            <div class="accordion-body text-muted" style="font-size:0.92rem;">Sim. Aceitamos doações internacionais via transferência bancária internacional (SWIFT/BIC). Para obter os dados para transferência internacional, contacte-nos em geral@acsol.ao.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-4 rounded-4 text-center" style="background:var(--azul-muito-claro);">
+        <h5 style="color:var(--azul-primario);">Ainda tem dúvidas?</h5>
+        <p class="text-muted mb-3">A nossa equipa está disponível para responder a todas as suas perguntas.</p>
+        <a href="#" class="btn-primary-custom" onclick="showSection('contact')"><i class="bi bi-envelope me-2"></i>Contactar-nos</a>
+      </div>
+    </div>
+  </section>
+</div><!-- /FAQ -->
+
+
+<!-- ═══════════════════════════════════════════
+     CONTACT SECTION
+════════════════════════════════════════════ -->
+<div id="section-contact" class="page-section">
+  <div class="page-hero">
+    <nav aria-label="breadcrumb" class="breadcrumb-custom mb-3">
+      <ol class="breadcrumb justify-content-center mb-0">
+        <li class="breadcrumb-item"><a href="#" onclick="showSection('home')">Início</a></li>
+        <li class="breadcrumb-item active">Contactos</li>
+      </ol>
+    </nav>
+    <h1>Contactos</h1>
+    <p>Estamos aqui para si. Entre em contacto connosco!</p>
+  </div>
+
+  <section class="py-5">
+    <div class="container py-4">
+      <div class="row g-5">
+        <div class="col-lg-5">
+          <div class="contact-card">
+            <h4 class="mb-4" style="color:var(--azul-primario);font-family:'Playfair Display',serif;">Informações de Contacto</h4>
+            <div class="contact-info-item">
+              <div class="contact-icon-wrap"><i class="bi bi-geo-alt-fill"></i></div>
+              <div>
+                <div class="fw-bold" style="color:var(--azul-primario);">Sede</div>
+                <div class="text-muted small">Rua da Solidariedade, 123, 1º Andar<br/>Bairro Miramar, Luanda – Angola</div>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-icon-wrap"><i class="bi bi-telephone-fill"></i></div>
+              <div>
+                <div class="fw-bold" style="color:var(--azul-primario);">Telefones</div>
+                <div class="text-muted small">+244 923 456 789 (Geral)<br/>+244 912 345 678 (Voluntariado)<br/>+244 934 567 890 (Doações)</div>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-icon-wrap"><i class="bi bi-envelope-fill"></i></div>
+              <div>
+                <div class="fw-bold" style="color:var(--azul-primario);">Email</div>
+                <div class="text-muted small">geral@acsol.ao<br/>voluntarios@acsol.ao<br/>doacoes@acsol.ao<br/>projetos@acsol.ao</div>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-icon-wrap"><i class="bi bi-clock-fill"></i></div>
+              <div>
+                <div class="fw-bold" style="color:var(--azul-primario);">Horário</div>
+                <div class="text-muted small">Segunda a Sexta: 08h – 17h<br/>Sábado: 09h – 13h<br/>Domingo: Fechado</div>
+              </div>
+            </div>
+
+            <div class="mt-4 pt-4 border-top">
+              <div class="fw-bold mb-3" style="color:var(--azul-primario);">Redes Sociais</div>
+              <div class="d-flex gap-3">
+                {% if site_config.facebook %}<a href="{{ site_config.facebook }}" target="_blank" rel="noopener" class="social-link dark" title="Facebook"><i class="bi bi-facebook"></i></a>{% endif %}
+                {% if site_config.instagram %}<a href="{{ site_config.instagram }}" target="_blank" rel="noopener" class="social-link dark" title="Instagram"><i class="bi bi-instagram"></i></a>{% endif %}
+                {% if site_config.linkedin %}<a href="{{ site_config.linkedin }}" target="_blank" rel="noopener" class="social-link dark" title="LinkedIn"><i class="bi bi-linkedin"></i></a>{% endif %}
+                {% if site_config.youtube %}<a href="{{ site_config.youtube }}" target="_blank" rel="noopener" class="social-link dark" title="YouTube"><i class="bi bi-youtube"></i></a>{% endif %}
+                {% if site_config.whatsapp_url %}<a href="{{ site_config.whatsapp_url }}" target="_blank" rel="noopener" class="social-link dark" title="WhatsApp" style="background:#d1fae5;color:#065f46;"><i class="bi bi-whatsapp"></i></a>{% endif %}
+                {% if not site_config.facebook and not site_config.instagram and not site_config.linkedin and not site_config.youtube and not site_config.whatsapp_url %}
+                  <span class="text-muted small">Adicione os links em Configurações do site.</span>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-7">
+          <div class="card-custom p-4 p-md-5">
+            <h4 class="mb-4" style="color:var(--azul-primario);font-family:'Playfair Display',serif;"><i class="bi bi-envelope-open me-2 text-primary"></i>Formulário de Contacto</h4>
+            <form class="form-custom ajax-form" action="{% url 'core:contact_message' %}" method="post">
+              {% csrf_token %}
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label-custom">Nome Completo *</label>
+                  <input type="text" name="nome" class="form-control" placeholder="O seu nome" required />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-custom">Telefone</label>
+                  <input type="tel" name="telefone" class="form-control" placeholder="+244 9XX XXX XXX" />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-custom">Email *</label>
+                  <input type="email" name="email" class="form-control" placeholder="email@exemplo.com" required />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-custom">Assunto *</label>
+                  <select name="assunto" class="form-select" required>
+                    <option value="">Seleccione o assunto...</option>
+                    <option>Informações Gerais</option>
+                    <option>Voluntariado</option>
+                    <option>Doações</option>
+                    <option>Projetos</option>
+                    <option>Parcerias</option>
+                    <option>Comunicação Social</option>
+                    <option>Outro</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label class="form-label-custom">Mensagem *</label>
+                  <textarea name="mensagem" class="form-control" rows="6" placeholder="Escreva a sua mensagem aqui..." required></textarea>
+                </div>
+                <div class="col-12">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="privacidade" required />
+                    <label class="form-check-label small text-muted" for="privacidade">
+                      Aceito a <a href="#" style="color:var(--azul-secundario);">Política de Privacidade</a> e autorizo o uso dos meus dados para resposta a este contacto.
+                    </label>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn-primary-custom w-100 py-3">
+                    <i class="bi bi-send me-2"></i>Enviar Mensagem
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <!-- Map placeholder -->
+          <div class="mt-4 rounded-4 overflow-hidden" style="height:220px;background:linear-gradient(135deg,var(--azul-muito-claro),#dbeafe);display:flex;align-items:center;justify-content:center;border:2px solid #bfdbfe;">
+            <div class="text-center">
+              <i class="bi bi-geo-alt" style="font-size:3rem;color:var(--azul-secundario);"></i>
+              <div class="mt-2 fw-bold" style="color:var(--azul-primario);">Luanda, Angola</div>
+              <div class="text-muted small">Rua da Solidariedade, 123 – Miramar</div>
+              <a href="https://maps.google.com" target="_blank" class="btn-outline-custom mt-3 d-inline-block" style="font-size:0.8rem;padding:8px 18px;"><i class="bi bi-map me-1"></i>Ver no Google Maps</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /CONTACT -->
+
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4">
+        <div class="d-flex align-items-center gap-3 mb-3">
+          <img class="acsol-logo-img footer-logo-img" src="{% static 'img/acsol-logo.jpg' %}" alt="Logo ACSOL Angola" />
+          <div>
+            <div class="footer-logo-text">ACSOL</div>
+            <div style="font-size:0.65rem;color:rgba(255,255,255,0.4);letter-spacing:1.5px;text-transform:uppercase;">Ação de Solidariedade em Angola</div>
+          </div>
+        </div>
+        <p class="footer-desc mb-4">Associação sem fins lucrativos dedicada ao desenvolvimento humano, social e comunitário em Angola desde 2010. Unidos pela solidariedade, transformamos vidas.</p>
+        <div class="d-flex gap-3">
+          {% if site_config.facebook %}<a href="{{ site_config.facebook }}" target="_blank" rel="noopener" class="social-link" title="Facebook"><i class="bi bi-facebook"></i></a>{% endif %}
+          {% if site_config.instagram %}<a href="{{ site_config.instagram }}" target="_blank" rel="noopener" class="social-link" title="Instagram"><i class="bi bi-instagram"></i></a>{% endif %}
+          {% if site_config.linkedin %}<a href="{{ site_config.linkedin }}" target="_blank" rel="noopener" class="social-link" title="LinkedIn"><i class="bi bi-linkedin"></i></a>{% endif %}
+          {% if site_config.youtube %}<a href="{{ site_config.youtube }}" target="_blank" rel="noopener" class="social-link" title="YouTube"><i class="bi bi-youtube"></i></a>{% endif %}
+          {% if site_config.whatsapp_url %}<a href="{{ site_config.whatsapp_url }}" target="_blank" rel="noopener" class="social-link" title="WhatsApp"><i class="bi bi-whatsapp"></i></a>{% endif %}
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-2">
+        <div class="footer-heading">Navegação</div>
+        <a href="#" class="footer-link" onclick="showSection('home')"><i class="bi bi-chevron-right"></i>Início</a>
+        <a href="#" class="footer-link" onclick="showSection('about')"><i class="bi bi-chevron-right"></i>Quem Somos</a>
+        <a href="#" class="footer-link" onclick="showSection('projects')"><i class="bi bi-chevron-right"></i>Projetos</a>
+        <a href="#" class="footer-link" onclick="showSection('news')"><i class="bi bi-chevron-right"></i>Notícias</a>
+        <a href="#" class="footer-link" onclick="showSection('gallery')"><i class="bi bi-chevron-right"></i>Galeria</a>
+        <a href="#" class="footer-link" onclick="showSection('videos')"><i class="bi bi-chevron-right"></i>Vídeos</a>
+        <a href="#" class="footer-link" onclick="showSection('divisions')"><i class="bi bi-chevron-right"></i>Divisões</a>
+        <a href="#" class="footer-link" onclick="showSection('faq')"><i class="bi bi-chevron-right"></i>FAQ</a>
+      </div>
+
+      <div class="col-sm-6 col-lg-2">
+        <div class="footer-heading">Participar</div>
+        <a href="#" class="footer-link" onclick="showSection('volunteer')"><i class="bi bi-chevron-right"></i>Voluntariado</a>
+        <a href="#" class="footer-link" onclick="showSection('donations')"><i class="bi bi-chevron-right"></i>Doações</a>
+        <a href="#" class="footer-link" onclick="showSection('partners')"><i class="bi bi-chevron-right"></i>Parceiros</a>
+        <a href="#" class="footer-link" onclick="showSection('contact')"><i class="bi bi-chevron-right"></i>Contactos</a>
+        <a href="#" class="footer-link"><i class="bi bi-chevron-right"></i>Relatório Anual</a>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="footer-heading">Newsletter</div>
+        <p class="footer-desc mb-3">Receba as nossas notícias e atualizações diretamente no seu email.</p>
+        <div class="input-group mb-3">
+          <input type="email" name="email" class="form-control" placeholder="O seu email..." style="border-radius:10px 0 0 10px;border:none;background:rgba(255,255,255,0.08);color:#fff;" />
+          <button class="btn btn-warning fw-bold px-3" style="border-radius:0 10px 10px 0;" onclick="subscribeNewsletter()">
+            <i class="bi bi-send"></i>
+          </button>
+        </div>
+        <div class="footer-heading mt-4">Contactos</div>
+        <div class="footer-link" style="cursor:default;"><i class="bi bi-telephone me-2" style="color:var(--dourado);"></i>+244 923 456 789</div>
+        <div class="footer-link" style="cursor:default;"><i class="bi bi-envelope me-2" style="color:var(--dourado);"></i>geral@acsol.ao</div>
+        <div class="footer-link" style="cursor:default;"><i class="bi bi-geo-alt me-2" style="color:var(--dourado);"></i>Luanda, Angola</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-3">
+      <div>© 2025 ACSOL – Ação de Solidariedade em Angola. Todos os direitos reservados.</div>
+      <div class="d-flex gap-3">
+        <a href="#" class="footer-link mb-0" style="font-size:0.78rem;">Política de Privacidade</a>
+        <a href="#" class="footer-link mb-0" style="font-size:0.78rem;">Termos de Uso</a>
+        <a href="#" class="footer-link mb-0" style="font-size:0.78rem;">Transparência</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div id="lightbox">
+  <span id="lightbox-close" onclick="closeLightbox()"><i class="bi bi-x-lg"></i></span>
+  <img id="lightbox-img" src="" alt="Imagem ampliada" />
+</div>
+
+<!-- BACK TO TOP -->
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Voltar ao topo">
+  <i class="bi bi-chevron-up"></i>
+</button>
+
+<!-- WHATSAPP -->
+{% if site_config.whatsapp_url %}
+<a href="{{ site_config.whatsapp_url }}" id="whatsapp-btn" target="_blank" rel="noopener" title="Fale connosco no WhatsApp">
+  <i class="bi bi-whatsapp"></i>
+</a>
+{% endif %}
+
+<!-- TOAST CONTAINER -->
+<div id="toast-container"></div>
+
+<div id="chatbot-widget" class="chatbot-widget">
+  <button type="button" class="chatbot-toggle" onclick="toggleChatbot()" title="Chatbot IA">
+    <i class="bi bi-robot"></i>
+  </button>
+  <div class="chatbot-panel" id="chatbot-panel" hidden>
+    <div class="chatbot-header">
+      <div>
+        <strong>Chatbot IA</strong>
+        <span>ACSOL Angola</span>
+      </div>
+      <button type="button" onclick="toggleChatbot()" title="Fechar"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <div class="chatbot-messages" id="chatbot-messages">
+      <div class="chatbot-message bot">{{ chatbot_config.mensagem_inicial|default:"Ola! Posso ajudar com projetos, voluntariado, eventos, doacoes e contactos." }}</div>
+    </div>
+    <form id="chatbot-form" class="chatbot-form" action="{% url 'core:chatbot_message' %}" method="post">
+      {% csrf_token %}
+      <input type="text" name="message" placeholder="Escreva a sua pergunta..." autocomplete="off" required />
+      <button type="button" id="chatbot-voice-toggle" class="chatbot-voice-on" title="Ativar/desativar voz"><i class="bi bi-volume-up"></i></button>
+      <button type="button" id="chatbot-voice-stop" title="Parar voz"><i class="bi bi-stop-fill"></i></button>
+      <button type="submit" title="Enviar"><i class="bi bi-send"></i></button>
+    </form>
+  </div>
+</div>
+
+<!-- Bootstrap 5 JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'js/site.js' %}"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
