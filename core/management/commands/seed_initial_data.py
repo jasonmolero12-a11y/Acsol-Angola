@@ -153,15 +153,16 @@ class Command(BaseCommand):
                 "texto_publico": "Envie a sua intencao de doacao para receber instrucoes seguras de pagamento.",
                 "contacto_doacoes": "doacoes@acsol.ao",
                 "telefone_doacoes": "+244 934 567 890",
-                "instrucoes_nacionais": "Doacao nacional:\nBanco: Banco Angolano de Investimentos (BAI)\nTitular: ACSOL - Acao de Solidariedade em Angola\nIBAN: AO06 0040 0000 1234 5678 1012 3\nReferencia: ACSOL-DOA\nDepois do pagamento, envie o comprovativo neste formulario ou para doacoes@acsol.ao.",
-                "instrucoes_internacionais": "Doacao internacional:\nBanco: Banco Angolano de Investimentos (BAI)\nTitular: ACSOL - Acao de Solidariedade em Angola\nIBAN: AO06 0040 0000 1234 5678 1012 3\nSWIFT/BIC: BAIPAOLU\nReferencia: ACSOL-INT\nConfirme os dados reais no admin antes da producao.",
-                "instrucoes_multicaixa": "Multicaixa Express:\nNumero: +244 934 567 890\nReferencia: ACSOL-MCX\nDepois do pagamento, envie o comprovativo neste formulario ou para doacoes@acsol.ao.",
+                "instrucoes_nacionais": "Doacao nacional indisponivel: preencha aqui os dados oficiais no painel administrativo antes de ativar o Quero Doar.",
+                "instrucoes_internacionais": "Doacao internacional indisponivel: preencha aqui os dados oficiais no painel administrativo antes de ativar o Quero Doar.",
+                "instrucoes_multicaixa": "Multicaixa Express indisponivel: preencha aqui os dados oficiais no painel administrativo antes de ativar o Quero Doar.",
                 "instrucoes_gateway": "Pagamento online:\nGateway ainda sera ativado na fase avancada. Por agora, submeta a intencao de doacao e a equipa enviara uma alternativa segura.",
                 "instrucoes_especie": "Doacao em especie:\nPode doar alimentos, roupa, material escolar, medicamentos permitidos, equipamentos ou outros bens uteis.\nDepois de preencher o formulario, a equipa da ACSOL entrara em contacto para combinar local, data e comprovacao da entrega.",
             },
         )
         if not created and not donation_settings.instrucoes_nacionais:
-            donation_settings.instrucoes_nacionais = "Doacao nacional:\nBanco: Banco Angolano de Investimentos (BAI)\nTitular: ACSOL - Acao de Solidariedade em Angola\nIBAN: AO06 0040 0000 1234 5678 1012 3\nReferencia: ACSOL-DOA"
+            donation_settings.instrucoes_nacionais = "Doacao nacional indisponivel: preencha os dados oficiais no painel administrativo antes de ativar o Quero Doar."
+        donation_settings.doacoes_monetarias_ativas = False
         donation_settings.mostrar_dados_bancarios_publicamente = False
         if not donation_settings.instrucoes_especie:
             donation_settings.instrucoes_especie = "Doacao em especie:\nInforme no campo mensagem quais bens pretende doar. A equipa da ACSOL entrara em contacto para combinar a entrega."
@@ -170,7 +171,7 @@ class Command(BaseCommand):
         chatbot, _ = ChatbotConfig.objects.get_or_create(
             nome="Chatbot IA ACSOL",
             defaults={
-                "provider": "llama",
+                "provider": "programado",
                 "api_url": "https://api.llama-api.com/chat/completions",
                 "modelo": "llama-3.1-8b-instruct",
                 "modo": "restrito",
@@ -178,6 +179,9 @@ class Command(BaseCommand):
                 "idioma_voz": "pt-PT",
             },
         )
+        chatbot.provider = chatbot.provider or "programado"
+        if chatbot.provider != "programado" and not chatbot.api_key:
+            chatbot.provider = "programado"
         chatbot.modo = chatbot.modo or "restrito"
         chatbot.assuntos_permitidos = chatbot.assuntos_permitidos or "ACSOL Angola, direitos humanos, projetos sociais, voluntariado, eventos, doacoes, contactos"
         chatbot.voz_ativa = True

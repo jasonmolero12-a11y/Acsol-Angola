@@ -587,6 +587,7 @@ class ActivityLog(TimeStampedModel):
 
 class ChatbotConfig(TimeStampedModel):
     PROVIDER_CHOICES = [
+        ("programado", "Respostas programadas"),
         ("llama", "Llama API"),
         ("openai", "OpenAI"),
         ("gemini", "Gemini"),
@@ -598,7 +599,7 @@ class ChatbotConfig(TimeStampedModel):
     ]
     nome = models.CharField(max_length=120, default="Chatbot IA ACSOL")
     ativo = models.BooleanField(default=True)
-    provider = models.CharField(max_length=20, choices=PROVIDER_CHOICES, default="llama")
+    provider = models.CharField(max_length=20, choices=PROVIDER_CHOICES, default="programado")
     api_key = models.CharField(max_length=255, blank=True, help_text="Chave da API usada pelo chatbot.")
     api_url = models.URLField(default="https://api.llama-api.com/chat/completions")
     modelo = models.CharField(max_length=120, default="llama-3.1-8b-instruct")
@@ -617,6 +618,14 @@ class ChatbotConfig(TimeStampedModel):
             "Responde apenas sobre a ACSOL Angola, projetos, voluntariado, eventos, doacoes e contactos. "
             "Se a pergunta fugir destes temas, explica educadamente que so podes responder sobre a ACSOL."
         )
+    )
+    resposta_padrao = models.TextField(
+        default=(
+            "Obrigado pela sua mensagem. Neste momento respondo apenas com informacoes programadas sobre "
+            "a ACSOL Angola, voluntariado, doacoes, projetos, eventos, direitos humanos e contactos. "
+            "Pode reformular a pergunta ou contactar a equipa da ACSOL."
+        ),
+        help_text="Resposta usada quando o chatbot esta em modo programado e nenhuma pergunta frequente corresponde.",
     )
 
     class Meta:

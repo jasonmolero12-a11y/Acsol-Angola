@@ -407,9 +407,9 @@ class ChatbotConfigAdmin(TrackedAdminMixin, admin.ModelAdmin):
     actions = ("testar_api",)
     fieldsets = (
         ("Estado", {"fields": ("nome", "ativo")}),
-        ("API", {"fields": ("provider", "api_key", "api_url", "modelo")}),
+        ("API ou modo gratis", {"fields": ("provider", "api_key", "api_url", "modelo"), "description": "Use Respostas programadas para hospedar gratis sem depender de Llama, OpenAI ou Gemini."}),
         ("Restricao e voz", {"fields": ("modo", "assuntos_permitidos", "voz_ativa", "idioma_voz")}),
-        ("Mensagens", {"fields": ("mensagem_inicial", "prompt_sistema")}),
+        ("Mensagens", {"fields": ("mensagem_inicial", "prompt_sistema", "resposta_padrao")}),
     )
 
     @admin.action(description="Testar API selecionada")

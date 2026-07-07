@@ -187,3 +187,8 @@ outputs/*.json
 db.sqlite3
 media/
 staticfiles/
+backups/
+
+# Copias acidentais dentro do proprio projeto
+Acsol1/
+Acsol-Angola 1 - Cópia/

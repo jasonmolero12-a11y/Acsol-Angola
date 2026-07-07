@@ -193,3 +193,58 @@ O que falta para fechar a V1 e principalmente inserir os dados reais da ACSOL: t
 - `docs/GUIA_ADMIN_COMPLETO_ACSOL.md`
 - `docs/GUIA_USO_SIMPLES_ACSOL.md`
 - `docs/GUIA_POSTGRESQL_ACSOL.md`
+# Atualizacao para PythonAnywhere Free
+
+Data: 2026-07-07
+
+## Objetivo desta fase
+
+Preparar a copia `Acsol-Angola 1 - Cópia` para ir ao ar primeiro em hospedagem gratis, mantendo o maximo de funcoes do sistema e evitando custos de API e banco externo.
+
+## Feito nesta atualizacao
+
+- Configuracao ajustada para aceitar dominio do PythonAnywhere por variavel `PYTHONANYWHERE_DOMAIN`.
+- URLs de ficheiros estaticos e media padronizadas como `/static/` e `/media/`.
+- Chatbot passou a suportar o provedor `Respostas programadas`, sem depender de Llama, OpenAI ou Gemini.
+- Adicionado campo `resposta_padrao` no Chatbot IA para responder quando nao houver FAQ correspondente.
+- Admin do Chatbot atualizado para explicar o modo gratis.
+- Dados iniciais de doacoes monetarias deixaram de trazer dados bancarios falsos.
+- `Quero Doar` monetario continua desligado por padrao ate o admin preencher dados oficiais e ativar.
+- Criado script de backup para SQLite e media: `scripts/pythonanywhere_backup.sh`.
+- Criado manual de hospedagem gratis: `docs/GUIA_PYTHONANYWHERE_FREE_ACSOL.md`.
+- `.gitignore` atualizado para ignorar pasta `backups/`.
+
+## Validacao tecnica executada
+
+- `python manage.py check`: sem problemas.
+- `python manage.py migrate`: migração `core.0013_chatbot_programado` aplicada na copia local.
+- `python manage.py collectstatic --noinput`: executado com sucesso.
+- `python manage.py makemigrations --check --dry-run`: sem alteracoes pendentes.
+
+## Percentagem geral estimada
+
+- Sistema Django funcional: 90%
+- Painel admin e gerentes: 88%
+- Conteudo editavel pelo admin: 90%
+- Doacoes monetarias seguras/desativadas: 95%
+- Doacao em especie: 90%
+- Chatbot economico programado: 90%
+- Preparacao para PythonAnywhere Free: 85%
+- Documentacao para hospedagem: 85%
+
+Percentagem geral atual: **89%**
+
+## O que falta fazer
+
+- Testar deploy real no PythonAnywhere com o nome de usuario final.
+- Criar `.env` real no servidor, sem colocar no GitHub.
+- Rodar `migrate`, `seed_initial_data` e `collectstatic` no PythonAnywhere.
+- Mapear `/static/` e `/media/` no painel Web do PythonAnywhere.
+- Fazer upload das imagens reais da ACSOL pelo admin.
+- Preencher links reais de redes sociais, parceiros e contactos.
+- Trocar senhas iniciais no admin depois do primeiro acesso.
+- Ativar `Quero Doar` apenas quando existirem dados bancarios oficiais confirmados.
+
+## Recomendacao atual
+
+Para comecar gratis, usar PythonAnywhere Free com SQLite e chatbot programado. Nao usar Netlify para o sistema completo, porque Netlify nao executa Django, admin, banco de dados e uploads.

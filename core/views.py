@@ -138,11 +138,21 @@ def chatbot_message(request):
     if faq_answer:
         return JsonResponse({"ok": True, "answer": faq_answer, "voice": config.voz_ativa, "voice_lang": config.idioma_voz})
 
+    if config.provider == "programado":
+        return JsonResponse(
+            {
+                "ok": True,
+                "answer": config.resposta_padrao,
+                "voice": config.voz_ativa,
+                "voice_lang": config.idioma_voz,
+            }
+        )
+
     if not config.api_key:
         return JsonResponse(
             {
                 "ok": True,
-                "answer": "Ainda falta configurar a chave da API no menu Chatbot IA do painel administrativo.",
+                "answer": config.resposta_padrao,
                 "voice": config.voz_ativa,
                 "voice_lang": config.idioma_voz,
             }
@@ -236,6 +246,8 @@ def chatbot_completion(config, question):
 
 
 def test_chatbot_provider(config, question):
+    if config.provider == "programado":
+        return True, "modo programado ativo; nao usa API paga."
     if not config.api_key:
         return False, "faltou preencher a chave da API."
     try:
