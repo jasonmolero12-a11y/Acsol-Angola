@@ -1,0 +1,32 @@
+databases:
+  - name: acsol-angola-db
+    databaseName: acsol_angola
+    user: acsol_user
+    plan: free
+
+services:
+  - type: web
+    name: acsol-angola
+    env: python
+    plan: free
+    buildCommand: ./build.sh
+    startCommand: gunicorn acsol.wsgi:application --log-file -
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.13
+      - key: DEBUG
+        value: "False"
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DATABASE_URL
+        fromDatabase:
+          name: acsol-angola-db
+          property: connectionString
+      - key: ALLOWED_HOSTS
+        sync: false
+      - key: CSRF_TRUSTED_ORIGINS
+        sync: false
+      - key: ACSOL_ADMIN_PASSWORD
+        sync: false
+      - key: ACSOL_MANAGER_DEFAULT_PASSWORD
+        sync: false
