@@ -221,6 +221,15 @@ Preparar a copia `Acsol-Angola 1 - Cópia` para ir ao ar primeiro em hospedagem 
 - `python manage.py collectstatic --noinput`: executado com sucesso.
 - `python manage.py makemigrations --check --dry-run`: sem alteracoes pendentes.
 
+## Correcao apos hospedagem no PythonAnywhere
+
+- Corrigido fallback visual das fotos da equipa para impedir texto gigante quando uma imagem falhar.
+- Imagem de membro agora usa `alt=""`, `loading="lazy"` e fallback automatico para icone profissional.
+- Videos locais agora declaram `type="video/mp4"` no template.
+- Reforcada recomendacao: ficheiros enviados no admin devem ter nomes simples, sem acentos e sem espacos.
+
+Percentagem geral apos correcao de media: **90%**
+
 ## Percentagem geral estimada
 
 - Sistema Django funcional: 90%
