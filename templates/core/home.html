@@ -688,7 +688,15 @@
         <div class="col-md-3 col-sm-6">
           <div class="team-card">
             {% if member.foto %}
-              <div class="team-avatar team-photo"><img src="{{ member.foto.url }}" alt="{{ member.nome }}" /></div>
+              <div class="team-avatar team-photo">
+                <img
+                  src="{{ member.foto.url }}"
+                  alt=""
+                  loading="lazy"
+                  onerror="this.classList.add('is-broken'); this.closest('.team-photo').classList.add('team-photo-fallback');"
+                />
+                <i class="bi bi-person-circle team-photo-icon"></i>
+              </div>
             {% else %}
               <div class="team-avatar"><i class="bi bi-person-circle"></i></div>
             {% endif %}
@@ -1088,7 +1096,7 @@
           {% elif item.tipo == "video" and item.video %}
             <div class="gallery-item gallery-media-item">
               <video class="gallery-video" controls preload="metadata">
-                <source src="{{ item.video.url }}" />
+                <source src="{{ item.video.url }}" type="video/mp4" />
                 O seu navegador nao suporta video.
               </video>
               <div class="gallery-caption"><i class="bi bi-play-circle me-1"></i>{{ item.titulo }}</div>
